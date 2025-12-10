@@ -1,174 +1,86 @@
 <!DOCTYPE html>
 <html lang="ja" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SWISH GALLERY | クリエイターのためのキャンバス</title>
-    <meta
-      name="description"
-      content="Swish Gallery は、絵描きのために作られた Windows 用画像ビューアです。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能を備え、創作に集中できる環境を提供します。"
-    />
-    <meta name="robots" content="index, follow" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- OGP Meta Tags -->
-    <meta property="og:title" content="SWISH GALLERY | クリエイターのためのキャンバス" />
-    <meta
-      property="og:description"
-      content="Swish Gallery は、絵描きのために作られた Windows 用画像ビューアです。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能を備えています。"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="./images/ogp.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SWISH GALLERY | クリエイターのためのキャンバス" />
-    <meta
-      name="twitter:description"
-      content="UI を極限まで削ぎ落とし、作品と向き合う時間を生み出す Windows 用画像ビューア。資料管理からバリューチェックまで、創作のために設計されたツールです。"
-    />
+  <!-- 基本のタイトルと説明 -->
+  <title>SWISH GALLERY | クリエイターのためのキャンバス</title>
+  <meta
+    name="description"
+    content="Swish Gallery は、絵描きのために作られた Windows 用画像ビューアです。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能を備え、創作に集中できる環境を提供します。"
+  />
 
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#0F172A" />
+  <!-- インデックス許可（デフォルトですが、明示しておくと分かりやすい） -->
+  <meta name="robots" content="index,follow" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- 公開 URL が決まったら、ここをあなたのサイト URL に変更 -->
+  <link rel="canonical" href="https://example.com/swish-gallery/" />
 
-    <!-- Tailwind (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['"Noto Sans JP"', '"Inter"', "sans-serif"],
-              inter: ['"Inter"', "sans-serif"],
-            },
-            colors: {
-              brand: {
-                black: "#0F172A",
-                gray: "#64748B",
-              },
-            },
-            backgroundImage: {
-              "gradient-brand":
-                "linear-gradient(135deg, rgb(72,173,255) 0%, rgb(237,36,193) 100%)",
-              "gradient-dark": "linear-gradient(to bottom, #0F172A, #1E293B)",
-            },
-            letterSpacing: {
-              tightest: "-0.05em",
-            },
-          },
-        },
-      };
-    </script>
+  <!-- OGP Meta Tags -->
+  <meta
+    property="og:title"
+    content="SWISH GALLERY | クリエイターのためのキャンバス"
+  />
+  <meta
+    property="og:description"
+    content="絵描きのために作られた Windows 用画像ビューア。資料管理、グレースケールプレビュー、リファレンスボードで、作品づくりに集中できます。"
+  />
+  <meta property="og:type" content="website" />
+  <!-- 公開 URL に合わせて必ず変更してください -->
+  <meta
+    property="og:url"
+    content="https://example.com/swish-gallery/"
+  />
+  <meta property="og:site_name" content="Swish Gallery" />
+  <meta
+    property="og:image"
+    content="https://example.com/swish-gallery/images/ogp.png"
+  />
 
-    <!-- Google Analytics (GA4) -->
-    <!-- 測定ID G-XXXXXXXXXX をご自身の ID に置き換えてください -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-XXXXXXXXXX");
-    </script>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="SWISH GALLERY | クリエイターのためのキャンバス"
+  />
+  <meta
+    name="twitter:description"
+    content="UI を極限まで削ぎ落とし、作品と向き合う時間をつくる Windows 用画像ビューア。資料管理からバリューチェックまで、創作のために設計されたツールです。"
+  />
+  <!-- 公式アカウントがあれば @xxxx を入れる -->
+  <!-- <meta name="twitter:site" content="@your_account" /> -->
 
-    <style>
-      /* カスタム選択色 */
-      ::selection {
-        background-color: rgb(72, 173, 255);
-        color: white;
-      }
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0F172A" />
 
-      .img-placeholder {
-        background-color: #fafafa;
-        border: 1px solid #e5e5e5;
-        color: #a3a3a3;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 2rem;
-        width: 100%;
-        height: 100%;
-        min-height: 400px;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .img-placeholder:hover {
-        border-color: rgb(72, 173, 255); /* ホバー時にブランドカラー */
-        background-color: #f0f9ff;
-      }
-      /* Animation */
-      .fade-in-up {
-        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .delay-100 {
-        animation-delay: 0.1s;
-      }
-      .delay-200 {
-        animation-delay: 0.2s;
-      }
-      .delay-300 {
-        animation-delay: 0.3s;
-      }
+  <!-- Favicon（配置に合わせてパスを変更） -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-      /* グラデーションテキスト用 */
-      .text-gradient {
-        background: linear-gradient(135deg, rgb(72, 173, 255) 0%, rgb(237, 36, 193) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
+  <!-- フォントなど（ここは元のまま） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
 
-      /* スキップリンク（アクセシビリティ） */
-      .skip-link {
-        position: absolute;
-        top: -100%;
-        left: 0;
-        background: #0f172a;
-        color: white;
-        padding: 0.5rem 1rem;
-        z-index: 100;
-        transition: top 0.3s;
-      }
-      .skip-link:focus {
-        top: 0;
-      }
+  <!-- ビルドされたCSSファイル -->
+  <link rel="stylesheet" href="./styles.css">
 
-      /* ヘッダースクロール時のスタイル */
-      .header-scrolled {
-        border-color: rgba(0, 0, 0, 0.05);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      }
+  <!-- Google Analytics（GA4）: 計測 ID を差し替えて使用 -->
+  <!-- https://developers.google.com/analytics/ でプロパティを作成 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
 
-      /* CTAボタンのパルスアニメーション */
-      @keyframes subtle-pulse {
-        0%,
-        100% {
-          box-shadow: 0 0 0 0 rgba(72, 173, 255, 0.4);
-        }
-        50% {
-          box-shadow: 0 0 0 8px rgba(72, 173, 255, 0);
-        }
-      }
-      .cta-pulse:hover {
-        animation: subtle-pulse 2s infinite;
-      }
-    </style>
-  </head>
   <body class="bg-white text-brand-black antialiased">
     <!-- スキップリンク（アクセシビリティ） -->
     <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
@@ -180,68 +92,11 @@
     >
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <a href="#" class="flex items-center gap-3 group">
-          <svg
+          <img
+            src="./assets/icons/logo.svg"
+            alt="Swish Gallery ロゴ"
             class="w-8 h-8 transition-transform duration-500 group-hover:rotate-180"
-            viewBox="0 0 1667 1667"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Swish Gallery ロゴ</title>
-            <rect x="0" y="0" width="1667" height="1667" fill="none" />
-            <g transform="matrix(2 0 0 2 -1667 -1667)">
-              <circle cx="1250.25" cy="1250.25" r="416.75" fill="none" />
-            </g>
-            <path
-              d="M416 539L520 516L624 490L728 467L832 448L936 436L1040 431L1144 430L1249 436L1249 563L1144 557L1040 558L936 564L832 575L728 594L624 617L520 643L416 666L416 539Z"
-              fill="url(#header-grad1)"
-            />
-            <path
-              d="M416 763L520 784L624 800L728 811L832 816L936 815L1040 809L1144 796L1249 777L1249 904L1144 923L1040 936L936 942L832 943L728 938L624 927L520 911L416 890L416 763Z"
-              fill="url(#header-grad2)"
-            />
-            <path
-              d="M416 1108L520 1102L624 1090L728 1071L832 1047L936 1021L1040 999L1144 982L1249 972L1249 1099L1144 1109L1040 1126L936 1148L832 1174L728 1198L624 1217L520 1229L416 1235L416 1108Z"
-              fill="url(#header-grad3)"
-            />
-            <defs>
-              <linearGradient
-                id="header-grad1"
-                x1="0"
-                y1="0"
-                x2="1"
-                y2="0"
-                gradientUnits="userSpaceOnUse"
-                gradientTransform="matrix(1667 1667 -1667 1667 0 0)"
-              >
-                <stop offset="0" stop-color="rgb(171,227,234)" />
-                <stop offset="1" stop-color="rgb(72,173,255)" />
-              </linearGradient>
-              <linearGradient
-                id="header-grad2"
-                x1="0"
-                y1="0"
-                x2="1"
-                y2="0"
-                gradientUnits="userSpaceOnUse"
-                gradientTransform="matrix(1667 1667 -1667 1667 0 0)"
-              >
-                <stop offset="0" stop-color="rgb(71,235,255)" />
-                <stop offset="1" stop-color="rgb(237,36,193)" />
-              </linearGradient>
-              <linearGradient
-                id="header-grad3"
-                x1="0"
-                y1="0"
-                x2="1"
-                y2="0"
-                gradientUnits="userSpaceOnUse"
-                gradientTransform="matrix(1667 1667 -1667 1667 0 0)"
-              >
-                <stop offset="0" stop-color="rgb(178,114,255)" />
-                <stop offset="1" stop-color="rgb(255,115,179)" />
-              </linearGradient>
-            </defs>
-          </svg>
+          />
           <span class="font-semibold text-sm tracking-widest uppercase font-inter">Swish Gallery</span>
         </a>
         <nav aria-label="メインナビゲーション">
@@ -285,15 +140,12 @@
                 class="relative flex items-center gap-2 bg-white text-brand-black transition-all group-hover:bg-opacity-90 px-8 py-3 rounded-full"
               >
                 無料で試す
-                <svg
+                <img
+                  src="./assets/icons/arrow-right.svg"
+                  alt=""
                   class="w-4 h-4 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
                   aria-hidden="true"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
+                />
               </span>
             </a>
             <span class="text-xs text-brand-gray font-light">30 日間の無料トライアル / 以降 ¥480（税込・買い切り）</span>
@@ -333,16 +185,12 @@
             </p>
           </div>
           <div class="md:col-span-8">
-            <div class="img-placeholder aspect-[4/3] mb-8">
-              <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">feature-grayscale.png</span>
-              <span class="text-xs font-light">カラー画像と、色価を保ったグレースケール変換との比較表示</span>
+            <div class="aspect-[4/3] mb-8">
               <img
                 src="./images/feature-grayscale.png"
                 alt="色価を正確に保ったグレースケール変換の比較"
-                class="hidden w-full h-full object-cover"
+                class="w-full h-full object-cover"
                 loading="lazy"
-                onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')"
-                onerror="this.classList.add('hidden')"
               />
             </div>
             <p class="text-base font-light leading-relaxed text-brand-black max-w-prose">
@@ -356,18 +204,12 @@
       <section class="py-32 md:py-48 px-6 max-w-7xl mx-auto bg-gray-50/80">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div class="order-2 md:order-1 relative">
-            <div class="img-placeholder aspect-square bg-white shadow-xl shadow-blue-500/5">
-              <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">feature-minimal.png</span>
-              <span class="text-xs font-light"
-                >デスクトップ背景の上にそのまま浮かんでいるような、枠のないボーダーレスなウィンドウ</span
-              >
+            <div class="aspect-square bg-white shadow-xl shadow-blue-500/5">
               <img
                 src="./images/feature-minimal.png"
                 alt="枠のないボーダーレスウィンドウデザイン"
-                class="hidden w-full h-full object-cover"
+                class="w-full h-full object-cover"
                 loading="lazy"
-                onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')"
-                onerror="this.classList.add('hidden')"
               />
             </div>
           </div>
@@ -407,16 +249,12 @@
         </div>
 
         <div class="relative w-full">
-          <div class="img-placeholder aspect-[16/8]">
-            <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">feature-board.png</span>
-            <span class="text-xs font-light">複数の画像をコラージュのように自由に配置したボード画面</span>
+          <div class="aspect-[16/8]">
             <img
               src="./images/feature-board.png"
               alt="複数の画像を自由に配置できるリファレンスボード"
-              class="hidden w-full h-full object-cover"
+              class="w-full h-full object-cover"
               loading="lazy"
-              onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')"
-              onerror="this.classList.add('hidden')"
             />
           </div>
         </div>
@@ -483,68 +321,11 @@
         ></div>
 
         <div class="max-w-3xl mx-auto relative z-10">
-          <svg
+          <img
+            src="./assets/icons/logo.svg"
+            alt="Swish Gallery アイコン"
             class="w-16 h-16 mx-auto mb-8 animate-pulse"
-            viewBox="0 0 1667 1667"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Swish Gallery アイコン</title>
-            <rect x="0" y="0" width="1667" height="1667" fill="none" />
-            <g transform="matrix(2 0 0 2 -1667 -1667)">
-              <circle cx="1250.25" cy="1250.25" r="416.75" fill="none" />
-            </g>
-            <path
-              d="M416 539L520 516L624 490L728 467L832 448L936 436L1040 431L1144 430L1249 436L1249 563L1144 557L1040 558L936 564L832 575L728 594L624 617L520 643L416 666L416 539Z"
-              fill="url(#cta-grad1)"
-            />
-            <path
-              d="M416 763L520 784L624 800L728 811L832 816L936 815L1040 809L1144 796L1249 777L1249 904L1144 923L1040 936L936 942L832 943L728 938L624 927L520 911L416 890L416 763Z"
-              fill="url(#cta-grad2)"
-            />
-            <path
-              d="M416 1108L520 1102L624 1090L728 1071L832 1047L936 1021L1040 999L1144 982L1249 972L1249 1099L1144 1109L1040 1126L936 1148L832 1174L728 1198L624 1217L520 1229L416 1235L416 1108Z"
-              fill="url(#cta-grad3)"
-            />
-            <defs>
-              <linearGradient
-                id="cta-grad1"
-                x1="0"
-                y1="0"
-                x2="1"
-                y2="0"
-                gradientUnits="userSpaceOnUse"
-                gradientTransform="matrix(1667 1667 -1667 1667 0 0)"
-              >
-                <stop offset="0" stop-color="rgb(171,227,234)" />
-                <stop offset="1" stop-color="rgb(72,173,255)" />
-              </linearGradient>
-              <linearGradient
-                id="cta-grad2"
-                x1="0"
-                y1="0"
-                x2="1"
-                y2="0"
-                gradientUnits="userSpaceOnUse"
-                gradientTransform="matrix(1667 1667 -1667 1667 0 0)"
-              >
-                <stop offset="0" stop-color="rgb(71,235,255)" />
-                <stop offset="1" stop-color="rgb(237,36,193)" />
-              </linearGradient>
-              <linearGradient
-                id="cta-grad3"
-                x1="0"
-                y1="0"
-                x2="1"
-                y2="0"
-                gradientUnits="userSpaceOnUse"
-                gradientTransform="matrix(1667 1667 -1667 1667 0 0)"
-              >
-                <stop offset="0" stop-color="rgb(178,114,255)" />
-                <stop offset="1" stop-color="rgb(255,115,179)" />
-              </linearGradient>
-            </defs>
-          </svg>
+          />
 
           <h2 class="text-4xl md:text-6xl font-bold tracking-tighter mb-8 leading-tight">
             創作環境を、<br />もっと自由に。
@@ -563,9 +344,12 @@
               onclick="gtag && gtag('event', 'click_store', { event_category: 'engagement', event_label: 'download_section' });"
             >
               <span class="flex items-center gap-3">
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z" />
-                </svg>
+                <img
+                  src="./assets/icons/microsoft-store.svg"
+                  alt=""
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                />
                 Microsoft Store で入手
               </span>
             </a>

@@ -1,16 +1,24 @@
-@import "tailwindcss";
-
 /* Google FontsからNoto Sans JPを読み込み */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+@import "tailwindcss";
 
 @theme {
   /* フォントファミリーの定義 */
   --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --font-inter: "Inter", sans-serif;
 
   /* アプリアイコンのグラデーションから抽出したアクセントカラー */
   --color-brand-cyan: rgb(72, 173, 255);
   --color-brand-magenta: rgb(237, 36, 193);
   --color-brand-purple: rgb(178, 114, 255);
+  
+  /* ブランドカラー */
+  --color-brand-black: #0F172A;
+  --color-brand-gray: #64748B;
+  
+  /* カスタムレタースペーシング */
+  --tracking-tightest: -0.05em;
 }
 
 /* 基本スタイル */
@@ -21,9 +29,101 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* 独自のユーティリティ（必要に応じて） */
+/* カスタム選択色 */
+::selection {
+  background-color: rgb(72, 173, 255);
+  color: white;
+}
+
+.img-placeholder {
+  background-color: #fafafa;
+  border: 1px solid #e5e5e5;
+  color: #a3a3a3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-placeholder:hover {
+  border-color: rgb(72, 173, 255); /* ホバー時にブランドカラー */
+  background-color: #f0f9ff;
+}
+/* Animation */
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+/* グラデーションテキスト用 */
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-magenta));
+  background: linear-gradient(135deg, rgb(72, 173, 255) 0%, rgb(237, 36, 193) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* スキップリンク（アクセシビリティ） */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: #0f172a;
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  transition: top 0.3s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ヘッダースクロール時のスタイル */
+.header-scrolled {
+  border-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* CTAボタンのパルスアニメーション */
+@keyframes subtle-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(72, 173, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(72, 173, 255, 0);
+  }
+}
+.cta-pulse:hover {
+  animation: subtle-pulse 2s infinite;
+}
+
+/* グラデーション背景 */
+.bg-gradient-brand {
+  background-image: linear-gradient(135deg, rgb(72, 173, 255) 0%, rgb(237, 36, 193) 100%);
+}
+
+.bg-gradient-dark {
+  background-image: linear-gradient(to bottom, #0F172A, #1E293B);
 }
