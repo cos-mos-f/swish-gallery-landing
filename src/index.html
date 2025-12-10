@@ -8,7 +8,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -17,13 +17,17 @@
           extend: {
             fontFamily: {
               sans: ['"Noto Sans JP"', '"Inter"', 'sans-serif'],
+              inter: ['"Inter"', 'sans-serif'],
             },
             colors: {
               brand: {
                 black: '#0F172A',
                 gray: '#64748B',
-                accent: '#000000',
               }
+            },
+            backgroundImage: {
+              'gradient-brand': 'linear-gradient(135deg, rgb(72,173,255) 0%, rgb(237,36,193) 100%)',
+              'gradient-dark': 'linear-gradient(to bottom, #0F172A, #1E293B)',
             },
             letterSpacing: {
               'tightest': '-0.05em',
@@ -34,6 +38,12 @@
     </script>
     
     <style>
+      /* カスタム選択色 */
+      ::selection {
+        background-color: rgb(72,173,255);
+        color: white;
+      }
+
       .img-placeholder {
         background-color: #FAFAFA;
         border: 1px solid #E5E5E5;
@@ -50,8 +60,8 @@
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .img-placeholder:hover {
-        border-color: #000;
-        background-color: #FFF;
+        border-color: rgb(72,173,255); /* ホバー時にブランドカラー */
+        background-color: #F0F9FF;
       }
       /* Animation */
       .fade-in-up {
@@ -65,19 +75,47 @@
       .delay-100 { animation-delay: 0.1s; }
       .delay-200 { animation-delay: 0.2s; }
       .delay-300 { animation-delay: 0.3s; }
+      
+      /* グラデーションテキスト用 */
+      .text-gradient {
+        background: linear-gradient(135deg, rgb(72,173,255) 0%, rgb(237,36,193) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     </style>
   </head>
-  <body class="bg-white text-brand-black antialiased selection:bg-black selection:text-white">
+  <body class="bg-white text-brand-black antialiased">
 
-    <header class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 transition-all duration-300">
+    <header class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 transition-all duration-300 border-b border-transparent">
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <a href="#" class="flex items-center gap-3 group">
-          <svg class="w-6 h-6 text-black transition-transform duration-500 group-hover:rotate-180" viewBox="0 0 1667 1667" fill="none" xmlns="http://www.w3.org/2000/svg">
-             <path d="M416 539L520 516L624 490L728 467L832 448L936 436L1040 431L1144 430L1249 436L1249 563L1144 557L1040 558L936 564L832 575L728 594L624 617L520 643L416 666L416 539Z" fill="currentColor" />
+          <svg class="w-8 h-8 transition-transform duration-500 group-hover:rotate-180" viewBox="0 0 1667 1667" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <title>Swish Gallery Logo</title>
+            <rect x="0" y="0" width="1667" height="1667" fill="none" />
+            <g transform="matrix(2 0 0 2 -1667 -1667)">
+              <circle cx="1250.25" cy="1250.25" r="416.75" fill="none" />
+            </g>
+            <path d="M416 539L520 516L624 490L728 467L832 448L936 436L1040 431L1144 430L1249 436L1249 563L1144 557L1040 558L936 564L832 575L728 594L624 617L520 643L416 666L416 539Z" fill="url(#header-grad1)" />
+            <path d="M416 763L520 784L624 800L728 811L832 816L936 815L1040 809L1144 796L1249 777L1249 904L1144 923L1040 936L936 942L832 943L728 938L624 927L520 911L416 890L416 763Z" fill="url(#header-grad2)" />
+            <path d="M416 1108L520 1102L624 1090L728 1071L832 1047L936 1021L1040 999L1144 982L1249 972L1249 1099L1144 1109L1040 1126L936 1148L832 1174L728 1198L624 1217L520 1229L416 1235L416 1108Z" fill="url(#header-grad3)" />
+            <defs>
+              <linearGradient id="header-grad1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1667 1667 -1667 1667 0 0)">
+                <stop offset="0" stop-color="rgb(171,227,234)" />
+                <stop offset="1" stop-color="rgb(72,173,255)" />
+              </linearGradient>
+              <linearGradient id="header-grad2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1667 1667 -1667 1667 0 0)">
+                <stop offset="0" stop-color="rgb(71,235,255)" />
+                <stop offset="1" stop-color="rgb(237,36,193)" />
+              </linearGradient>
+              <linearGradient id="header-grad3" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1667 1667 -1667 1667 0 0)">
+                <stop offset="0" stop-color="rgb(178,114,255)" />
+                <stop offset="1" stop-color="rgb(255,115,179)" />
+              </linearGradient>
+            </defs>
           </svg>
           <span class="font-semibold text-sm tracking-widest uppercase font-inter">Swish Gallery</span>
         </a>
-        <a href="#download" class="text-xs font-bold tracking-widest uppercase border-b border-transparent hover:border-black transition-colors pb-0.5">
+        <a href="#download" class="text-xs font-bold tracking-widest uppercase border-b-2 border-transparent hover:border-brand-gray transition-colors pb-1">
           ダウンロード
         </a>
       </div>
@@ -87,10 +125,10 @@
       
       <section class="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 max-w-7xl mx-auto">
         <div class="max-w-5xl">
-          <p class="fade-in-up text-xs font-bold tracking-widest text-gray-400 mb-8 uppercase font-inter">For Digital Artists</p>
-          <h1 class="fade-in-up delay-100 text-5xl md:text-8xl font-bold leading-[1.1] md:leading-[0.9] tracking-tighter mb-12">
+          <p class="fade-in-up text-xs font-bold tracking-widest text-brand-gray mb-8 uppercase font-inter">For Digital Artists</p>
+          <h1 class="fade-in-up delay-100 text-5xl md:text-8xl font-bold leading-tight tracking-tighter mb-10">
             99%の画面領域。<br>
-            <span class="text-gray-300">0%のノイズ。</span>
+            <span class="text-gradient">0%のノイズ。</span>
           </h1>
           <p class="fade-in-up delay-200 text-lg md:text-xl text-brand-gray max-w-xl leading-relaxed mb-10 font-light">
             創作のための空白を。<br>
@@ -98,11 +136,14 @@
           </p>
           
           <div class="fade-in-up delay-200 mb-16 flex flex-col sm:flex-row gap-8 items-start sm:items-center">
-             <a href="#download" class="inline-flex items-center text-sm font-bold tracking-widest uppercase border-b border-black pb-1 hover:opacity-70 transition-opacity">
-               無料で試す
-               <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+             <a href="#download" class="group relative inline-flex items-center justify-center overflow-hidden rounded-full p-0.5 font-bold focus:outline-none">
+               <span class="absolute inset-0 bg-gradient-brand transition-all group-hover:opacity-80"></span>
+               <span class="relative flex items-center gap-2 bg-white text-brand-black transition-all group-hover:bg-opacity-90 px-8 py-3 rounded-full">
+                 無料で試す
+                 <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+               </span>
              </a>
-             <span class="text-xs text-gray-400 font-light">30日間無料トライアル / 以降 ¥480(税込)</span>
+             <span class="text-xs text-brand-gray font-light">30日間無料トライアル / 以降 ¥480(税込)</span>
           </div>
         </div>
 
@@ -112,7 +153,7 @@
             <span class="text-xs font-light">高解像度の作品を表示中の、<br>余計な枠線が一切ないスクリーンショット</span>
             <img src="./images/hero-main.png" class="hidden w-full h-full object-cover" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
           </div>
-          <div class="absolute -right-4 -bottom-10 md:-right-10 md:-bottom-20 text-[10rem] md:text-[15rem] font-bold text-gray-50 opacity-50 -z-10 select-none pointer-events-none font-inter">
+          <div class="absolute -right-4 -bottom-10 md:-right-10 md:-bottom-20 text-[10rem] md:text-[15rem] font-bold text-gray-100 opacity-30 -z-10 select-none pointer-events-none font-inter">
             01
           </div>
         </div>
@@ -121,7 +162,7 @@
       <section class="py-32 md:py-48 px-6 max-w-5xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-start">
           <div class="md:col-span-4 sticky top-32">
-            <h2 class="text-4xl font-bold tracking-tighter mb-6 leading-none">真実の<br>「色価」</h2>
+            <h2 class="text-4xl font-bold tracking-tighter mb-6 leading-tight">真実の<br>「色価」</h2>
             <p class="text-brand-gray text-sm leading-relaxed">
               彩度を落とすだけでは見えないものがある。<br>
               人間の目の感度に基づいた、正しい値を。
@@ -140,20 +181,20 @@
         </div>
       </section>
 
-      <section class="py-32 md:py-48 px-6 max-w-7xl mx-auto bg-gray-50/50">
+      <section class="py-32 md:py-48 px-6 max-w-7xl mx-auto bg-gray-50/80">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div class="order-2 md:order-1 relative">
-             <div class="img-placeholder aspect-square bg-white shadow-xl shadow-black/5">
+             <div class="img-placeholder aspect-square bg-white shadow-xl shadow-blue-500/5">
               <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">feature-minimal.png</span>
               <span class="text-xs font-light">デスクトップ背景に「浮いている」ような<br>枠のないアプリウィンドウ</span>
               <img src="./images/feature-minimal.png" class="hidden w-full h-full object-cover" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
             </div>
           </div>
           <div class="order-1 md:order-2 md:pl-10">
-            <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-8 text-black">
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-8 text-black leading-tight">
               透明な<br>インターフェース
             </h2>
-            <div class="w-12 h-0.5 bg-black mb-8"></div>
+            <div class="w-12 h-1 bg-gradient-brand mb-8 rounded-full"></div>
             <p class="text-brand-gray text-lg font-light leading-relaxed mb-8">
               ウィンドウ枠、タイトルバー、メニュー。<br>
               それらは作品鑑賞におけるノイズです。<br>
@@ -162,15 +203,15 @@
             </p>
             <ul class="space-y-4 text-sm font-medium tracking-wide font-inter">
               <li class="flex items-center gap-3">
-                <span class="block w-1.5 h-1.5 bg-black rounded-full"></span>
+                <span class="block w-2 h-2 bg-gradient-brand rounded-full"></span>
                 Borderless Design
               </li>
               <li class="flex items-center gap-3">
-                <span class="block w-1.5 h-1.5 bg-gray-300 rounded-full"></span>
+                <span class="block w-2 h-2 bg-gray-200 rounded-full"></span>
                 Ratio Snapping
               </li>
               <li class="flex items-center gap-3">
-                <span class="block w-1.5 h-1.5 bg-gray-300 rounded-full"></span>
+                <span class="block w-2 h-2 bg-gray-200 rounded-full"></span>
                 Seamless Grid View
               </li>
             </ul>
@@ -180,7 +221,7 @@
 
       <section class="py-32 md:py-48 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-24">
-          <h2 class="text-3xl md:text-5xl font-bold tracking-tighter mb-6">思考を広げるキャンバス</h2>
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tighter mb-6 leading-tight">思考を広げるキャンバス</h2>
           <p class="text-brand-gray font-light">アイデアを散らかそう。リファレンスボード機能。</p>
         </div>
         
@@ -195,69 +236,87 @@
 
       <section class="py-32 px-6 max-w-4xl mx-auto border-t border-gray-100">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
-           <h2 class="text-3xl font-bold tracking-tighter">スマートな管理</h2>
+           <h2 class="text-3xl font-bold tracking-tighter leading-tight">スマートな管理</h2>
            <p class="text-sm text-brand-gray mt-4 md:mt-0">フォルダとラベルによる、柔軟なファイリング</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-gray-50 p-8 h-64 flex flex-col justify-between hover:bg-black hover:text-white transition-colors duration-500 cursor-default group">
-              <span class="text-xs font-bold tracking-widest uppercase opacity-50 font-inter">01</span>
+            <div class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1">
+              <span class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter">01</span>
               <div>
-                <h3 class="font-bold text-lg mb-2">フォルダツリー</h3>
-                <p class="text-xs opacity-70 leading-relaxed">OSのディレクトリ構造をそのまま美しく表示。インポートの手間はありません。</p>
+                <h3 class="font-bold text-lg mb-2 group-hover:text-gradient">フォルダツリー</h3>
+                <p class="text-xs text-brand-gray leading-relaxed">OSのディレクトリ構造をそのまま美しく表示。インポートの手間はありません。</p>
               </div>
             </div>
-            <div class="bg-gray-50 p-8 h-64 flex flex-col justify-between hover:bg-black hover:text-white transition-colors duration-500 cursor-default group">
-              <span class="text-xs font-bold tracking-widest uppercase opacity-50 font-inter">02</span>
+            <div class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1">
+              <span class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter">02</span>
               <div>
-                <h3 class="font-bold text-lg mb-2">ラベル管理</h3>
-                <p class="text-xs opacity-70 leading-relaxed">フォルダを横断して「背景」「ポーズ」などのタグ付けが可能。</p>
+                <h3 class="font-bold text-lg mb-2 group-hover:text-gradient">ラベル管理</h3>
+                <p class="text-xs text-brand-gray leading-relaxed">フォルダを横断して「背景」「ポーズ」などのタグ付けが可能。</p>
               </div>
             </div>
-            <div class="bg-gray-50 p-8 h-64 flex flex-col justify-between hover:bg-black hover:text-white transition-colors duration-500 cursor-default group">
-              <span class="text-xs font-bold tracking-widest uppercase opacity-50 font-inter">03</span>
+            <div class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-pink-500/10 hover:-translate-y-1">
+              <span class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter">03</span>
               <div>
-                <h3 class="font-bold text-lg mb-2">高速検索</h3>
-                <p class="text-xs opacity-70 leading-relaxed">大量の画像の中から、ファイル名やタグで瞬時に目的の資料を見つけ出します。</p>
+                <h3 class="font-bold text-lg mb-2 group-hover:text-gradient">高速検索</h3>
+                <p class="text-xs text-brand-gray leading-relaxed">大量の画像の中から、ファイル名やタグで瞬時に目的の資料を見つけ出します。</p>
               </div>
             </div>
         </div>
       </section>
 
-      <section id="download" class="py-32 px-6 bg-black text-white text-center">
-        <div class="max-w-3xl mx-auto">
-          <svg class="w-12 h-12 mx-auto mb-8 text-white animate-pulse" viewBox="0 0 1667 1667" fill="none" xmlns="http://www.w3.org/2000/svg">
-             <path d="M416 539L520 516L624 490L728 467L832 448L936 436L1040 431L1144 430L1249 436L1249 563L1144 557L1040 558L936 564L832 575L728 594L624 617L520 643L416 666L416 539Z" fill="url(#grad-cta)" />
-             <defs>
-               <linearGradient id="grad-cta" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1667 1667 -1667 1667 0 0)">
-                 <stop offset="0" stop-color="rgb(171,227,234)" />
-                 <stop offset="1" stop-color="rgb(72,173,255)" />
-               </linearGradient>
-             </defs>
+      <section id="download" class="py-32 px-6 bg-gradient-dark text-white text-center relative overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 translate-y-1/2"></div>
+
+        <div class="max-w-3xl mx-auto relative z-10">
+          <svg class="w-16 h-16 mx-auto mb-8 animate-pulse" viewBox="0 0 1667 1667" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <title>Swish Gallery Icon</title>
+            <rect x="0" y="0" width="1667" height="1667" fill="none" />
+            <g transform="matrix(2 0 0 2 -1667 -1667)">
+              <circle cx="1250.25" cy="1250.25" r="416.75" fill="none" />
+            </g>
+            <path d="M416 539L520 516L624 490L728 467L832 448L936 436L1040 431L1144 430L1249 436L1249 563L1144 557L1040 558L936 564L832 575L728 594L624 617L520 643L416 666L416 539Z" fill="url(#cta-grad1)" />
+            <path d="M416 763L520 784L624 800L728 811L832 816L936 815L1040 809L1144 796L1249 777L1249 904L1144 923L1040 936L936 942L832 943L728 938L624 927L520 911L416 890L416 763Z" fill="url(#cta-grad2)" />
+            <path d="M416 1108L520 1102L624 1090L728 1071L832 1047L936 1021L1040 999L1144 982L1249 972L1249 1099L1144 1109L1040 1126L936 1148L832 1174L728 1198L624 1217L520 1229L416 1235L416 1108Z" fill="url(#cta-grad3)" />
+            <defs>
+              <linearGradient id="cta-grad1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1667 1667 -1667 1667 0 0)">
+                <stop offset="0" stop-color="rgb(171,227,234)" />
+                <stop offset="1" stop-color="rgb(72,173,255)" />
+              </linearGradient>
+              <linearGradient id="cta-grad2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1667 1667 -1667 1667 0 0)">
+                <stop offset="0" stop-color="rgb(71,235,255)" />
+                <stop offset="1" stop-color="rgb(237,36,193)" />
+              </linearGradient>
+              <linearGradient id="cta-grad3" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1667 1667 -1667 1667 0 0)">
+                <stop offset="0" stop-color="rgb(178,114,255)" />
+                <stop offset="1" stop-color="rgb(255,115,179)" />
+              </linearGradient>
+            </defs>
           </svg>
           
-          <h2 class="text-4xl md:text-6xl font-bold tracking-tighter mb-8">
+          <h2 class="text-4xl md:text-6xl font-bold tracking-tighter mb-8 leading-tight">
             創作環境を、<br>自由にする。
           </h2>
           
-          <div class="mb-12 border border-white/20 inline-block p-8 rounded-2xl bg-white/5 backdrop-blur-sm">
+          <div class="mb-12 border border-white/10 inline-block p-8 rounded-2xl bg-white/5 backdrop-blur-md">
              <p class="text-xl font-bold mb-2">まずは30日間、無料でお試しください</p>
-             <p class="text-gray-400 text-sm mb-6">
-               試用期間終了後は、<span class="text-white font-bold">480円</span>(税込) の買い切りで<br>
+             <p class="text-gray-300 text-sm mb-8">
+               試用期間終了後は、<span class="text-white font-bold text-lg">480円</span>(税込) の買い切りで<br>
                永久ライセンスをご利用いただけます。
              </p>
-             <a href="#" class="inline-block bg-white text-black px-12 py-4 rounded-full font-bold tracking-wider hover:scale-105 transition-transform duration-300">
+             <a href="#" class="inline-block bg-gradient-brand text-white px-12 py-4 rounded-full font-bold tracking-wider hover:scale-105 transition-transform duration-300 shadow-lg shadow-blue-500/25">
                Microsoft Store で入手
              </a>
           </div>
 
-          <p class="text-xs text-gray-500 font-medium tracking-widest uppercase">
+          <p class="text-xs text-gray-400 font-medium tracking-widest uppercase">
             Windows 10 / 11 対応
           </p>
         </div>
       </section>
 
-      <footer class="py-12 px-6 text-center text-xs text-gray-400 font-medium tracking-widest uppercase font-inter">
+      <footer class="py-12 px-6 text-center text-xs text-brand-gray font-medium tracking-widest uppercase font-inter">
         <p>&copy; 2025 Swish Gallery</p>
       </footer>
 
