@@ -1,208 +1,266 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>SWISH GALLERY - イラスト制作のための資料管理・画像ビューアー</title>
+    <title>SWISH GALLERY | クリエイターのためのキャンバス</title>
     <meta name="description" content="絵描きのために作られたWindows用フォトアプリ。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能を搭載。" />
     
-    <link href="./styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Noto Sans JP"', '"Inter"', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                black: '#0F172A',
+                gray: '#64748B',
+                accent: '#000000',
+              }
+            },
+            letterSpacing: {
+              'tightest': '-0.05em',
+            }
+          }
+        }
+      }
+    </script>
+    
     <style>
       .img-placeholder {
-        background-color: #f1f5f9; /* slate-100 */
-        border: 2px dashed #cbd5e1; /* slate-300 */
-        color: #64748b; /* slate-500 */
+        background-color: #FAFAFA;
+        border: 1px solid #E5E5E5;
+        color: #A3A3A3;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 1rem;
+        padding: 2rem;
         width: 100%;
         height: 100%;
-        min-height: 300px;
-        border-radius: 0.75rem; /* rounded-xl */
-        transition: all 0.2s;
+        min-height: 400px;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .img-placeholder:hover {
-        border-color: #94a3b8; /* slate-400 */
-        background-color: #e2e8f0; /* slate-200 */
+        border-color: #000;
+        background-color: #FFF;
       }
+      /* Animation */
+      .fade-in-up {
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      @keyframes fadeInUp {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
     </style>
   </head>
-  <body class="bg-white text-slate-800 font-sans">
+  <body class="bg-white text-brand-black antialiased selection:bg-black selection:text-white">
 
-    <header class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 border-b border-slate-100">
-      <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div class="flex items-center gap-2 font-bold text-xl tracking-tight">
-          <svg class="w-8 h-8" viewBox="0 0 1667 1667" fill="none" xmlns="http://www.w3.org/2000/svg">
-             <path d="M416 539L520 516L624 490L728 467L832 448L936 436L1040 431L1144 430L1249 436L1249 563L1144 557L1040 558L936 564L832 575L728 594L624 617L520 643L416 666L416 539Z" fill="url(#grad1-mini)" />
+    <header class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3 group">
+          <svg class="w-6 h-6 text-black transition-transform duration-500 group-hover:rotate-180" viewBox="0 0 1667 1667" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M416 539L520 516L624 490L728 467L832 448L936 436L1040 431L1144 430L1249 436L1249 563L1144 557L1040 558L936 564L832 575L728 594L624 617L520 643L416 666L416 539Z" fill="currentColor" />
+          </svg>
+          <span class="font-semibold text-sm tracking-widest uppercase font-inter">Swish Gallery</span>
+        </a>
+        <a href="#download" class="text-xs font-bold tracking-widest uppercase border-b border-transparent hover:border-black transition-colors pb-0.5">
+          ダウンロード
+        </a>
+      </div>
+    </header>
+
+    <main>
+      
+      <section class="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="max-w-5xl">
+          <p class="fade-in-up text-xs font-bold tracking-widest text-gray-400 mb-8 uppercase font-inter">For Digital Artists</p>
+          <h1 class="fade-in-up delay-100 text-5xl md:text-8xl font-bold leading-[1.1] md:leading-[0.9] tracking-tighter mb-12">
+            99%の画面領域。<br>
+            <span class="text-gray-300">0%のノイズ。</span>
+          </h1>
+          <p class="fade-in-up delay-200 text-lg md:text-xl text-brand-gray max-w-xl leading-relaxed mb-10 font-light">
+            創作のための空白を。<br>
+            Swish Galleryは、UIを極限まで削ぎ落とし、作品と向き合う時間を作り出すWindowsアプリケーションです。
+          </p>
+          
+          <div class="fade-in-up delay-200 mb-16 flex flex-col sm:flex-row gap-8 items-start sm:items-center">
+             <a href="#download" class="inline-flex items-center text-sm font-bold tracking-widest uppercase border-b border-black pb-1 hover:opacity-70 transition-opacity">
+               無料で試す
+               <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+             </a>
+             <span class="text-xs text-gray-400 font-light">30日間無料トライアル / 以降 ¥480(税込)</span>
+          </div>
+        </div>
+
+        <div class="fade-in-up delay-300 w-full relative group">
+          <div class="img-placeholder aspect-[21/9]">
+            <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">hero-main.png</span>
+            <span class="text-xs font-light">高解像度の作品を表示中の、<br>余計な枠線が一切ないスクリーンショット</span>
+            <img src="./images/hero-main.png" class="hidden w-full h-full object-cover" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
+          </div>
+          <div class="absolute -right-4 -bottom-10 md:-right-10 md:-bottom-20 text-[10rem] md:text-[15rem] font-bold text-gray-50 opacity-50 -z-10 select-none pointer-events-none font-inter">
+            01
+          </div>
+        </div>
+      </section>
+
+      <section class="py-32 md:py-48 px-6 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-start">
+          <div class="md:col-span-4 sticky top-32">
+            <h2 class="text-4xl font-bold tracking-tighter mb-6 leading-none">真実の<br>「色価」</h2>
+            <p class="text-brand-gray text-sm leading-relaxed">
+              彩度を落とすだけでは見えないものがある。<br>
+              人間の目の感度に基づいた、正しい値を。
+            </p>
+          </div>
+          <div class="md:col-span-8">
+            <div class="img-placeholder aspect-[4/3] mb-8">
+              <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">feature-grayscale.png</span>
+              <span class="text-xs font-light">カラー画像と、色価を保ったモノクロ変換後の画像の比較</span>
+              <img src="./images/feature-grayscale.png" class="hidden w-full h-full object-cover" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
+            </div>
+            <p class="text-base font-light leading-relaxed text-brand-black max-w-prose">
+              多くのビューアーが行う単純な彩度0加工では、輝度が正しく反映されません。Swish Galleryは、光と影の設計（バリュー・スタディ）において信頼できるプレビューを提供します。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-32 md:py-48 px-6 max-w-7xl mx-auto bg-gray-50/50">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <div class="order-2 md:order-1 relative">
+             <div class="img-placeholder aspect-square bg-white shadow-xl shadow-black/5">
+              <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">feature-minimal.png</span>
+              <span class="text-xs font-light">デスクトップ背景に「浮いている」ような<br>枠のないアプリウィンドウ</span>
+              <img src="./images/feature-minimal.png" class="hidden w-full h-full object-cover" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
+            </div>
+          </div>
+          <div class="order-1 md:order-2 md:pl-10">
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-8 text-black">
+              透明な<br>インターフェース
+            </h2>
+            <div class="w-12 h-0.5 bg-black mb-8"></div>
+            <p class="text-brand-gray text-lg font-light leading-relaxed mb-8">
+              ウィンドウ枠、タイトルバー、メニュー。<br>
+              それらは作品鑑賞におけるノイズです。<br>
+              画像の比率にピタッと吸着するウィンドウが、<br>
+              あなたのデスクトップをアトリエに変えます。
+            </p>
+            <ul class="space-y-4 text-sm font-medium tracking-wide font-inter">
+              <li class="flex items-center gap-3">
+                <span class="block w-1.5 h-1.5 bg-black rounded-full"></span>
+                Borderless Design
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="block w-1.5 h-1.5 bg-gray-300 rounded-full"></span>
+                Ratio Snapping
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="block w-1.5 h-1.5 bg-gray-300 rounded-full"></span>
+                Seamless Grid View
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-32 md:py-48 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-24">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tighter mb-6">思考を広げるキャンバス</h2>
+          <p class="text-brand-gray font-light">アイデアを散らかそう。リファレンスボード機能。</p>
+        </div>
+        
+        <div class="relative w-full">
+          <div class="img-placeholder aspect-[16/8]">
+            <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">feature-board.png</span>
+            <span class="text-xs font-light">複数の画像がコラージュのように自由に配置されたボード</span>
+            <img src="./images/feature-board.png" class="hidden w-full h-full object-cover" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
+          </div>
+        </div>
+      </section>
+
+      <section class="py-32 px-6 max-w-4xl mx-auto border-t border-gray-100">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
+           <h2 class="text-3xl font-bold tracking-tighter">スマートな管理</h2>
+           <p class="text-sm text-brand-gray mt-4 md:mt-0">フォルダとラベルによる、柔軟なファイリング</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 p-8 h-64 flex flex-col justify-between hover:bg-black hover:text-white transition-colors duration-500 cursor-default group">
+              <span class="text-xs font-bold tracking-widest uppercase opacity-50 font-inter">01</span>
+              <div>
+                <h3 class="font-bold text-lg mb-2">フォルダツリー</h3>
+                <p class="text-xs opacity-70 leading-relaxed">OSのディレクトリ構造をそのまま美しく表示。インポートの手間はありません。</p>
+              </div>
+            </div>
+            <div class="bg-gray-50 p-8 h-64 flex flex-col justify-between hover:bg-black hover:text-white transition-colors duration-500 cursor-default group">
+              <span class="text-xs font-bold tracking-widest uppercase opacity-50 font-inter">02</span>
+              <div>
+                <h3 class="font-bold text-lg mb-2">ラベル管理</h3>
+                <p class="text-xs opacity-70 leading-relaxed">フォルダを横断して「背景」「ポーズ」などのタグ付けが可能。</p>
+              </div>
+            </div>
+            <div class="bg-gray-50 p-8 h-64 flex flex-col justify-between hover:bg-black hover:text-white transition-colors duration-500 cursor-default group">
+              <span class="text-xs font-bold tracking-widest uppercase opacity-50 font-inter">03</span>
+              <div>
+                <h3 class="font-bold text-lg mb-2">高速検索</h3>
+                <p class="text-xs opacity-70 leading-relaxed">大量の画像の中から、ファイル名やタグで瞬時に目的の資料を見つけ出します。</p>
+              </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="download" class="py-32 px-6 bg-black text-white text-center">
+        <div class="max-w-3xl mx-auto">
+          <svg class="w-12 h-12 mx-auto mb-8 text-white animate-pulse" viewBox="0 0 1667 1667" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M416 539L520 516L624 490L728 467L832 448L936 436L1040 431L1144 430L1249 436L1249 563L1144 557L1040 558L936 564L832 575L728 594L624 617L520 643L416 666L416 539Z" fill="url(#grad-cta)" />
              <defs>
-               <linearGradient id="grad1-mini" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1667 1667 -1667 1667 0 0)">
+               <linearGradient id="grad-cta" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1667 1667 -1667 1667 0 0)">
                  <stop offset="0" stop-color="rgb(171,227,234)" />
                  <stop offset="1" stop-color="rgb(72,173,255)" />
                </linearGradient>
              </defs>
           </svg>
-          <span>SWISH GALLERY</span>
-        </div>
-        <a href="#download" class="text-sm font-medium bg-slate-100 px-4 py-2 rounded-full hover:bg-slate-200 transition-colors">ダウンロード</a>
-      </div>
-    </header>
+          
+          <h2 class="text-4xl md:text-6xl font-bold tracking-tighter mb-8">
+            創作環境を、<br>自由にする。
+          </h2>
+          
+          <div class="mb-12 border border-white/20 inline-block p-8 rounded-2xl bg-white/5 backdrop-blur-sm">
+             <p class="text-xl font-bold mb-2">まずは30日間、無料でお試しください</p>
+             <p class="text-gray-400 text-sm mb-6">
+               試用期間終了後は、<span class="text-white font-bold">480円</span>(税込) の買い切りで<br>
+               永久ライセンスをご利用いただけます。
+             </p>
+             <a href="#" class="inline-block bg-white text-black px-12 py-4 rounded-full font-bold tracking-wider hover:scale-105 transition-transform duration-300">
+               Microsoft Store で入手
+             </a>
+          </div>
 
-    <main class="pt-24 pb-12 overflow-x-hidden">
-      
-      <section class="max-w-6xl mx-auto px-6 mb-32 pt-10">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h1 class="text-4xl md:text-6xl font-bold mb-8 text-slate-900 tracking-tight leading-tight">
-            画面の99%を、<br/>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[rgb(72,173,255)] to-[rgb(237,36,193)]">作品のため</span>に。
-          </h1>
-          <p class="text-xl text-slate-600 mb-10 leading-relaxed">
-            Swish Galleryは、絵描きの「欲しい」を詰め込んだWindows用フォトアプリ。<br>
-            邪魔な枠線を排除し、正しい色価を知るための機能を備えています。
+          <p class="text-xs text-gray-500 font-medium tracking-widest uppercase">
+            Windows 10 / 11 対応
           </p>
-          
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#download" class="inline-flex items-center justify-center px-8 py-4 text-white bg-slate-900 rounded-lg hover:bg-slate-800 transition-all shadow-lg hover:-translate-y-1 font-bold text-lg">
-              無料でダウンロード
-            </a>
-            <a href="#features" class="text-slate-500 hover:text-slate-800 font-medium px-4 py-2">
-              機能を見る ↓
-            </a>
-          </div>
-        </div>
-
-        <div class="relative max-w-5xl mx-auto">
-          <div class="img-placeholder aspect-[16/10] shadow-2xl">
-            <span class="font-bold text-lg mb-2">hero-main.png</span>
-            <span class="text-sm">アプリの全体像がわかる、一番映えるスクリーンショット。<br>美しいイラストを表示している状態を推奨。</span>
-            <img src="./images/hero-main.png" class="hidden w-full h-full object-cover rounded-xl" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
-          </div>
-          
-          <div class="absolute -top-10 -left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -z-10 animate-blob"></div>
-          <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -z-10 animate-blob animation-delay-2000"></div>
         </div>
       </section>
 
-      <section id="features" class="max-w-6xl mx-auto px-6 space-y-32 mb-32">
-        
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="order-2 md:order-1">
-            <h2 class="text-3xl font-bold mb-6">「正しい」グレースケールで<br>色価(Value)を確認</h2>
-            <p class="text-lg text-slate-600 leading-relaxed mb-6">
-              一般的な彩度0加工では、輝度が正しく反映されず、イラストの明暗バランスを見誤ることがあります。
-            </p>
-            <p class="text-lg text-slate-600 leading-relaxed mb-6">
-              Swish Galleryは、人間の目の感度に基づいた「色価」を保ったグレースケール変換を瞬時に行います。光と影の設計が正しいか、ワンクリックで確認可能です。
-            </p>
-            <div class="p-4 bg-slate-50 rounded-lg border border-slate-100 text-sm text-slate-500">
-              <span class="font-bold text-slate-700">Point:</span> 彩度を落とすだけでなく、本来の明るさを保ったまま変換します。
-            </div>
-          </div>
-          <div class="order-1 md:order-2">
-            <div class="img-placeholder">
-              <span class="font-bold text-lg mb-2">feature-grayscale.png</span>
-              <span class="text-sm">「カラーの絵」と「Swish Galleryで変換したグレーの絵」を<br>左右または斜めに並べた比較画像。</span>
-              <img src="./images/feature-grayscale.png" class="hidden w-full h-full object-cover rounded-xl" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
-            </div>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="order-1">
-            <div class="img-placeholder">
-              <span class="font-bold text-lg mb-2">feature-minimal.png</span>
-              <span class="text-sm">デスクトップ背景の上に、枠のないアプリが<br>浮いているようなスクリーンショット。<br>ヘッダーなどが無いことを強調。</span>
-              <img src="./images/feature-minimal.png" class="hidden w-full h-full object-cover rounded-xl" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
-            </div>
-          </div>
-          <div class="order-2">
-            <h2 class="text-3xl font-bold mb-6">没入感を阻害しない<br>極限のミニマルUI</h2>
-            <p class="text-lg text-slate-600 leading-relaxed mb-6">
-              ウィンドウ枠、タイトルバー、メニューバー…それらは作品鑑賞や模写の邪魔です。
-            </p>
-            <p class="text-lg text-slate-600 leading-relaxed">
-              Swish Galleryは画像の比率に合わせてウィンドウサイズがピタッと吸着。画面上のノイズを極限まで減らし、画像の表示領域を最大化します。リバー表示とグリッド表示の切り替えもシームレスです。
-            </p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="order-2 md:order-1">
-            <h2 class="text-3xl font-bold mb-6">散らばるアイデアを一枚に。<br>リファレンスボード機能</h2>
-            <p class="text-lg text-slate-600 leading-relaxed mb-6">
-              複数の資料画像を自由に配置できる「ボード」機能を搭載。
-            </p>
-            <ul class="space-y-3 text-slate-600">
-              <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-brand-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                <span>自由な配置、回転、トリミング</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-brand-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                <span>クリップボードから直接貼り付け</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-brand-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                <span>インスピレーションを加速させる無限キャンバス</span>
-              </li>
-            </ul>
-          </div>
-          <div class="order-1 md:order-2">
-            <div class="img-placeholder">
-              <span class="font-bold text-lg mb-2">feature-board.png</span>
-              <span class="text-sm">複数の画像（顔のパーツ、背景、配色案など）が<br>コルクボードのように乱雑かつ自由に配置されている様子。</span>
-              <img src="./images/feature-board.png" class="hidden w-full h-full object-cover rounded-xl" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
-            </div>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="order-1">
-            <div class="img-placeholder">
-              <span class="font-bold text-lg mb-2">feature-library.png</span>
-              <span class="text-sm">グリッド表示で画像一覧が並んでいる様子。<br>「フォルダ」や「ラベル」による分類が見えると良い。</span>
-              <img src="./images/feature-library.png" class="hidden w-full h-full object-cover rounded-xl" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
-            </div>
-          </div>
-          <div class="order-2">
-            <h2 class="text-3xl font-bold mb-6">フォルダもラベルも。<br>スマートな資料管理</h2>
-            <p class="text-lg text-slate-600 leading-relaxed">
-              膨大な資料画像も、Swish Galleryなら迷子になりません。フォルダ階層による整理はもちろん、フォルダをまたいで管理できる「ラベル」機能も搭載。
-            </p>
-            <div class="mt-6 flex flex-wrap gap-2">
-              <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">#背景資料</span>
-              <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm font-medium">#手のポーズ</span>
-              <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">#配色アイデア</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="download" class="bg-slate-900 text-white py-24 px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8">
-          あなたの創作環境を、<br>もっと自由に。
-        </h2>
-        <p class="text-slate-300 mb-10 max-w-xl mx-auto">
-          Swish Galleryは現在開発中ですが、Microsoft Storeにて公開予定です。<br>
-          シンプルで強力なビューアーを体験してください。
-        </p>
-        <div class="flex flex-col items-center justify-center gap-4">
-            <a href="#" class="bg-white text-slate-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-slate-100 transition-colors flex items-center gap-3">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H8l4-5 4 5h-3v4h-2z"/></svg>
-              Microsoft Store で入手
-            </a>
-            <span class="text-xs text-slate-500">Windows 10 Version 1809 以降に対応</span>
-        </div>
-      </section>
-
-      <footer class="bg-white border-t border-slate-100 py-12 text-center">
-        <p class="text-slate-400 text-sm">
-          &copy; 2025 Swish Gallery. All rights reserved.
-        </p>
+      <footer class="py-12 px-6 text-center text-xs text-gray-400 font-medium tracking-widest uppercase font-inter">
+        <p>&copy; 2025 Swish Gallery</p>
       </footer>
+
     </main>
   </body>
 </html>
