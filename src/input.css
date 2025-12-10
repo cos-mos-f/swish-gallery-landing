@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Swish Gallery 用のシンプルなテーマ変数 */
+@theme {
+  --color-brand: #0f766e;        /* ボタンなどのメイン色 (teal系) */
+  --color-brand-soft: #ccfbf1;   /* 薄い背景色 */
+}
+
+/* 細かいレイアウト調整用のカスタムCSSがあればここに書く */
+.hero-gradient {
+  background: radial-gradient(circle at top left, rgba(45, 212, 191, 0.28), transparent 55%),
+              radial-gradient(circle at bottom right, rgba(94, 234, 212, 0.35), transparent 50%);
+}

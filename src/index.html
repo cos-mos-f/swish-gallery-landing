@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swish Gallery | イラスト制作向け画像ビューア（Windowsアプリ）</title>
+  <meta
+    name="description"
+    content="Swish Gallery は、イラスト制作向けに設計された Windows 用画像ビューアです。ミニマルなUIで画面のほとんどを画像表示に使え、リバー表示・グリッド表示・ラベル・リファレンスボード・色価を保ったグレースケールプレビューで「描く人」のワークフローを支えます。"
+  />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-50 antialiased">
+  <div class="hero-gradient">
+    <!-- ヘッダー -->
+    <header class="border-b border-white/10 bg-slate-950/80 backdrop-blur">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 md:px-6">
+        <div class="flex items-center gap-2">
+          <div class="h-8 w-8 rounded-lg bg-teal-400/20 ring-1 ring-teal-400/40 flex items-center justify-center">
+            <span class="text-xs font-semibold text-teal-300">SG</span>
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="text-sm font-semibold tracking-wide">Swish Gallery</span>
+            <span class="text-xs text-slate-400">for Windows</span>
+          </div>
+        </div>
+        <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+          <a href="#features" class="hover:text-teal-300 transition-colors">特徴</a>
+          <a href="#modes" class="hover:text-teal-300 transition-colors">表示モード</a>
+          <a href="#board" class="hover:text-teal-300 transition-colors">リファレンスボード</a>
+          <a href="#value-preview" class="hover:text-teal-300 transition-colors">グレースケール</a>
+          <a
+            href="#download"
+            class="rounded-full bg-teal-500 px-4 py-1.5 text-xs font-semibold text-slate-950 shadow-lg shadow-teal-500/30 hover:bg-teal-400 transition-colors"
+          >
+            ダウンロード
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- メイン -->
+    <main>
+      <!-- Hero：ミニマルUI＋グリッド -->
+      <section class="border-b border-white/10">
+        <div class="mx-auto flex max-w-5xl flex-col gap-10 px-4 py-12 md:flex-row md:items-center md:px-6 md:py-20">
+          <!-- テキスト側 -->
+          <div class="flex-1 space-y-6">
+            <div class="inline-flex items-center gap-2 rounded-full border border-teal-500/40 bg-slate-900/60 px-3 py-1 text-xs text-teal-200">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-teal-400"></span>
+              <span>画面のほとんどが画像になる、ミニマルなビューア</span>
+            </div>
+
+            <div class="space-y-3">
+              <h1 class="text-3xl font-semibold tracking-tight md:text-4xl">
+                99% が画像の
+                <span class="bg-gradient-to-r from-teal-300 to-cyan-300 bg-clip-text text-transparent">
+                  ミニマル画像ビューア
+                </span>
+                Swish Gallery
+              </h1>
+              <p class="text-sm leading-relaxed text-slate-300 md:text-base">
+                Swish Gallery は、イラストレーターや絵を描く学生のための Windows 向け画像ビューアです。
+                余計なパネルやツールバーを削ぎ落とし、画面のほとんどを画像表示に割り当てることで、
+                ラフ・参考・完成絵を一度に見渡せます。
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-3 text-xs text-slate-300 md:flex-row md:items-center md:gap-4">
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/70 text-[10px] text-slate-200">
+                  Win
+                </span>
+                <span>Windows 10 / 11 対応</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/70 text-[10px] text-slate-200">
+                  Minimal
+                </span>
+                <span>画像が主役のシンプル設計</span>
+              </div>
+            </div>
+
+            <!-- ボタン -->
+            <div class="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
+              <a
+                id="download"
+                href="https://apps.microsoft.com/store/detail/xxxxxxxx"  <!-- 実際のストアURLに差し替え -->
+                class="inline-flex items-center justify-center rounded-lg bg-teal-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-teal-500/30 hover:bg-teal-400 transition-colors"
+              >
+                Microsoft Store で入手
+              </a>
+              <a
+                href="#features"
+                class="inline-flex items-center justify-center rounded-lg border border-slate-700 bg-slate-900/60 px-5 py-2.5 text-sm text-slate-100 hover:border-teal-400/60 hover:text-teal-200 transition-colors"
+              >
+                機能・特徴を見る
+              </a>
+            </div>
+          </div>
+
+          <!-- スクリーンショット：グリッド＋ミニマルUI -->
+          <div class="flex-1">
+            <div class="relative">
+              <div class="pointer-events-none absolute -inset-4 rounded-3xl bg-teal-500/10 blur-3xl"></div>
+              <div class="relative rounded-2xl border border-white/10 bg-slate-900/80 p-3 shadow-xl shadow-black/60">
+                <div class="mb-2 flex items-center gap-1">
+                  <span class="h-2.5 w-2.5 rounded-full bg-slate-600"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-slate-700"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-slate-800"></span>
+                </div>
+                <div class="aspect-video w-full overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80">
+                  <!-- グリッド表示＋ミニマルUI のスクショ -->
+                  <img
+                    src="./images/screen-grid-main.png"
+                    alt="Swish Gallery のミニマルUIで、画面いっぱいにグリッド表示されたイラスト一覧"
+                    class="h-full w-full object-cover"
+                  />
+                </div>
+                <p class="mt-3 text-[11px] text-slate-400">
+                  グリッド表示で、ラフや進捗、完成イラストを画面いっぱいに敷き詰めて確認できます。
+                  ツールバーやサイドバーがほとんど存在しないため、画像そのものに集中できます。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 特徴概要 -->
+      <section id="features" class="border-b border-white/10 bg-slate-950/80">
+        <div class="mx-auto max-w-5xl px-4 py-10 md:px-6 md:py-14">
+          <div class="mb-6 space-y-2 text-center">
+            <h2 class="text-xl font-semibold tracking-tight md:text-2xl">Swish Gallery の特徴</h2>
+            <p class="text-sm text-slate-400">
+              ミニマルなUI、柔軟な表示モード、フォルダをまたいだラベル管理、リファレンスボード、色価を保つグレースケールなど、
+              「描く人」のワークフローに特化した機能を備えています。
+            </p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-3">
+            <article class="flex flex-col gap-2 rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+              <h3 class="text-sm font-semibold text-teal-200">画面の99%が画像</h3>
+              <p class="text-xs leading-relaxed text-slate-300">
+                余分なパネルを削減し、画像表示領域を最大化。作業用サブモニタに置いても、ほとんどが画像で埋まります。
+              </p>
+            </article>
+
+            <article class="flex flex-col gap-2 rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+              <h3 class="text-sm font-semibold text-teal-200">リバー表示とグリッド表示</h3>
+              <p class="text-xs leading-relaxed text-slate-300">
+                工程を横に流して確認できるリバー表示と、作品を一覧比較しやすいグリッド表示を切り替えて使えます。
+              </p>
+            </article>
+
+            <article class="flex flex-col gap-2 rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+              <h3 class="text-sm font-semibold text-teal-200">ラベルとリファレンスボード</h3>
+              <p class="text-xs leading-relaxed text-slate-300">
+                フォルダをまたいだラベル表示と、自由配置・トリミング・回転が可能なリファレンスボードで、
+                資料やラフを「描くための形」に整理できます。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 表示モード：リバー表示＋グリッド表示 -->
+      <section id="modes" class="border-b border-white/10 bg-slate-950">
+        <div class="mx-auto max-w-5xl px-4 py-10 md:px-6 md:py-14">
+          <div class="mb-6 space-y-2 text-center">
+            <h2 class="text-xl font-semibold tracking-tight md:text-2xl">リバー表示とグリッド表示</h2>
+            <p class="text-sm text-slate-400">
+              制作工程の確認にはリバー表示を、差分やバリエーションの比較にはグリッド表示を。
+              シーンに応じて切り替えながら使えます。
+            </p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-2">
+            <!-- リバー表示 -->
+            <article class="flex flex-col gap-3 rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+              <h3 class="text-sm font-semibold text-teal-200">リバー表示</h3>
+              <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-800 bg-slate-950/80">
+                <img
+                  src="./images/screen-river.png"
+                  alt="Swish Gallery のリバー表示で、ラフから完成までの工程が横方向に並んだ画面"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <p class="text-xs leading-relaxed text-slate-300">
+                ラフ → 線画 → 塗り途中 → 完成、といった工程を横方向に流れるように確認できる表示モードです。
+                進捗の差分を追いながら、次の一手を決めるのに向いています。
+              </p>
+            </article>
+
+            <!-- グリッド表示 -->
+            <article class="flex flex-col gap-3 rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+              <h3 class="text-sm font-semibold text-teal-200">グリッド表示</h3>
+              <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-800 bg-slate-950/80">
+                <img
+                  src="./images/screen-grid-detail.png"
+                  alt="Swish Gallery のグリッド表示で、複数のイラストが均一な比率で並んだ画面"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <p class="text-xs leading-relaxed text-slate-300">
+                完成絵や差分、表情バリエーションなどを一気に見渡せる表示モードです。
+                画像の比率を揃えたグリッドで、作品同士のバランスや統一感を確認できます。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ラベル表示＋フォルダまたぎ -->
+      <section id="labels" class="border-b border-white/10 bg-slate-950/90">
+        <div class="mx-auto max-w-5xl px-4 py-10 md:px-6 md:py-14">
+          <div class="mb-6 space-y-2 text-center">
+            <h2 class="text-xl font-semibold tracking-tight md:text-2xl">ラベル表示でフォルダをまたぐ管理</h2>
+            <p class="text-sm text-slate-400">
+              保存先のフォルダ構造に縛られず、ラベルで「あとで見返したい画像」だけを集めて表示できます。
+            </p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-[1.2fr,0.8fr]">
+            <div class="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+              <div class="mb-3 flex items-center justify-between gap-2">
+                <p class="text-xs font-semibold text-teal-200">同じラベルの画像だけを集めて表示</p>
+                <span class="rounded-full bg-slate-800 px-2 py-0.5 text-[10px] text-slate-300">
+                  Label: character_design
+                </span>
+              </div>
+              <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-800 bg-slate-950/80">
+                <img
+                  src="./images/screen-label.png"
+                  alt="Swish Gallery のラベル表示で、フォルダをまたいだキャラクターデザインの画像が一覧で表示されている画面"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <p class="mt-3 text-xs leading-relaxed text-slate-300">
+                ラベルを付けておけば、別々のフォルダにあっても同じラベルの画像だけを一覧表示できます。
+                キャラクターデザイン案や依頼用の参考資料など、「目的別の束」を素早く呼び出せます。
+              </p>
+            </div>
+
+            <div class="space-y-4 text-xs text-slate-300">
+              <div class="rounded-lg border border-slate-800 bg-slate-900/70 p-3">
+                <h3 class="mb-1 text-[13px] font-semibold text-slate-100">フォルダ選択＋ラベルの併用</h3>
+                <p>
+                  簡単なフォルダ選択でベースの表示範囲を決めつつ、
+                  ラベルで「特定のキャラ」「特定の案件」だけを絞り込む、といった使い方が可能です。
+                </p>
+              </div>
+              <div class="rounded-lg border border-slate-800 bg-slate-900/70 p-3">
+                <h3 class="mb-1 text-[13px] font-semibold text-slate-100">制作フローに合わせた整理</h3>
+                <p>
+                  例として、「commission_ref」「portfolio」「kaf_fanart」など、用途やキャラクター名でラベルを切っておくと、
+                  作業や投稿準備のたびに画像を探し直す手間を減らせます。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- リファレンスボード＋枠のない単独ウィンドウ -->
+      <section id="board" class="border-b border-white/10 bg-slate-950">
+        <div class="mx-auto max-w-5xl px-4 py-10 md:px-6 md:py-14">
+          <div class="mb-6 space-y-2 text-center">
+            <h2 class="text-xl font-semibold tracking-tight md:text-2xl">リファレンスボードと専用ビューウィンドウ</h2>
+            <p class="text-sm text-slate-400">
+              資料を自由に貼り付けて配置できるリファレンスボードと、
+              ヘッダーのない「画像比率ぴったり」の専用ウィンドウで、描く手を止めずに確認できます。
+            </p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-[1.4fr,0.9fr]">
+            <!-- リファレンスボード -->
+            <article class="flex flex-col gap-3 rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+              <h3 class="text-sm font-semibold text-teal-200">リファレンスボード：自由配置・トリミング・回転</h3>
+              <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-800 bg-slate-950/80">
+                <img
+                  src="./images/screen-board.png"
+                  alt="Swish Gallery のリファレンスボードで、複数の資料画像が自由な位置と大きさ・角度で配置されている画面"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <p class="text-xs leading-relaxed text-slate-300">
+                資料画像をボード上に貼り付け、サイズ・トリミング・回転を調整しながら自由に配置できます。
+                クリップボードから貼り付けた一時的な資料もまとめて並べられるため、描画中の視線移動を最小限に抑えられます。
+              </p>
+            </article>
+
+            <!-- ヘッダーレスの単独ウィンドウ -->
+            <article class="flex flex-col gap-3 rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+              <h3 class="text-sm font-semibold text-teal-200">画像比率ぴったりの専用ウィンドウ</h3>
+              <div class="aspect-[4/5] overflow-hidden rounded-lg border border-slate-800 bg-slate-950/80">
+                <img
+                  src="./images/screen-borderless.png"
+                  alt="Swish Gallery のヘッダーや枠のない専用画像ウィンドウで、イラストが比率ぴったりに表示されている画面"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <p class="text-xs leading-relaxed text-slate-300">
+                ヘッダーや枠を一切表示しない、画像比率ぴったりの専用ウィンドウを用意しています。
+                メインモニタの片隅に置いておき、作業ソフトと並べて表示する用途に適しています。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 色価を保ったグレースケールプレビュー -->
+      <section id="value-preview" class="border-b border-white/10 bg-slate-950/95">
+        <div class="mx-auto max-w-5xl px-4 py-10 md:px-6 md:py-14">
+          <div class="mb-6 space-y-2 text-center">
+            <h2 class="text-xl font-semibold tracking-tight md:text-2xl">色価を保ったグレースケールプレビュー</h2>
+            <p class="text-sm text-slate-400">
+              単なる「彩度0」ではなく、イラストの明るさ情報（value）を保ったグレースケールプレビューで、
+              光と影のバランスを正しく確認できます。
+            </p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+              <p class="mb-2 text-xs font-semibold text-teal-200">カラー表示</p>
+              <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-800 bg-slate-950/80">
+                <img
+                  src="./images/screen-color.png"
+                  alt="Swish Gallery のカラー表示で、光と影のコントラストがはっきりしたイラスト画面"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+
+            <div class="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+              <p class="mb-2 text-xs font-semibold text-teal-200">色価を保ったグレースケールプレビュー</p>
+              <div class="aspect-[16/9] overflow-hidden rounded-lg border border-slate-800 bg-slate-950/80">
+                <img
+                  src="./images/screen-value.png"
+                  alt="Swish Gallery のグレースケールプレビューで、明るさ情報が保たれた白黒表示のイラスト画面"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <p class="mt-3 text-xs leading-relaxed text-slate-300">
+                イラスト界隈でよくある「彩度0加工では明るさが潰れて参考にならない」という問題に対し、
+                Swish Gallery では色価を保ったグレースケール変換を用意しています。
+                明度のバランスを確認しながら塗りの粗さや光の当たり方をチェックできます。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="border-b border-white/10 bg-slate-950/90">
+        <div class="mx-auto max-w-5xl px-4 py-10 md:px-6 md:py-14">
+          <div class="mb-6 space-y-2 text-center">
+            <h2 class="text-xl font-semibold tracking-tight md:text-2xl">よくある質問</h2>
+          </div>
+
+          <div class="space-y-5 text-sm">
+            <div class="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+              <h3 class="font-semibold text-slate-100">Q. 料金はかかりますか？</h3>
+              <p class="mt-2 text-slate-300">
+                A. 個人での利用は無料です。今後のアップデートも Microsoft Store 経由で配信します。
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+              <h3 class="font-semibold text-slate-100">Q. 対応している環境を教えてください。</h3>
+              <p class="mt-2 text-slate-300">
+                A. Windows 10 / 11 を想定しています。詳細な動作環境は Microsoft Store のページもあわせてご確認ください。
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+              <h3 class="font-semibold text-slate-100">Q. イラスト以外の画像でも使えますか？</h3>
+              <p class="mt-2 text-slate-300">
+                A. 汎用的な画像ビューアとしても利用できますが、UI はイラスト制作のワークフローを前提に調整しています。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-slate-950">
+      <div class="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-8 md:flex-row md:items-center md:justify-between md:px-6">
+        <div class="space-y-1 text-xs text-slate-400">
+          <p>© Swish Gallery</p>
+          <p>イラスト制作の「見る」を少しだけ楽にする小さなツールです。</p>
+        </div>
+        <div class="flex justify-start md:justify-end">
+          <a
+            href="https://apps.microsoft.com/store/detail/xxxxxxxx"  <!-- 実際のストアURLに差し替え -->
+            class="inline-flex items-center justify-center rounded-lg bg-teal-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-lg shadow-teal-500/30 hover:bg-teal-400 transition-colors"
+          >
+            Microsoft Store で入手
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
