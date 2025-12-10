@@ -6,6 +6,18 @@
     <title>SWISH GALLERY | クリエイターのためのキャンバス</title>
     <meta name="description" content="絵描きのために作られたWindows用フォトアプリ。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能を搭載。" />
     
+    <!-- OGP Meta Tags -->
+    <meta property="og:title" content="SWISH GALLERY | クリエイターのためのキャンバス" />
+    <meta property="og:description" content="絵描きのために作られたWindows用フォトアプリ。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能を搭載。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./images/ogp.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SWISH GALLERY | クリエイターのためのキャンバス" />
+    <meta name="twitter:description" content="絵描きのために作られたWindows用フォトアプリ。UIを極限まで削ぎ落とし、作品と向き合う時間を作り出します。" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0F172A" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -81,12 +93,45 @@
         background: linear-gradient(135deg, rgb(72,173,255) 0%, rgb(237,36,193) 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      /* スキップリンク（アクセシビリティ） */
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        background: #0F172A;
+        color: white;
+        padding: 0.5rem 1rem;
+        z-index: 100;
+        transition: top 0.3s;
+      }
+      .skip-link:focus {
+        top: 0;
+      }
+      
+      /* ヘッダースクロール時のスタイル */
+      .header-scrolled {
+        border-color: rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+      
+      /* CTAボタンのパルスアニメーション */
+      @keyframes subtle-pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(72, 173, 255, 0.4); }
+        50% { box-shadow: 0 0 0 8px rgba(72, 173, 255, 0); }
+      }
+      .cta-pulse:hover {
+        animation: subtle-pulse 2s infinite;
       }
     </style>
   </head>
   <body class="bg-white text-brand-black antialiased">
+    <!-- スキップリンク（アクセシビリティ） -->
+    <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
 
-    <header class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 transition-all duration-300 border-b border-transparent">
+    <header id="header" class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 transition-all duration-300 border-b border-transparent" role="banner">
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <a href="#" class="flex items-center gap-3 group">
           <svg class="w-8 h-8 transition-transform duration-500 group-hover:rotate-180" viewBox="0 0 1667 1667" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,18 +160,20 @@
           </svg>
           <span class="font-semibold text-sm tracking-widest uppercase font-inter">Swish Gallery</span>
         </a>
-        <a href="#download" class="text-xs font-bold tracking-widest uppercase border-b-2 border-transparent hover:border-brand-gray transition-colors pb-1">
-          ダウンロード
-        </a>
+        <nav aria-label="メインナビゲーション">
+          <a href="#download" class="text-xs font-bold tracking-widest uppercase border-b-2 border-transparent hover:border-brand-gray transition-colors pb-1">
+            ダウンロード
+          </a>
+        </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main-content" role="main">
       
-      <section class="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 max-w-7xl mx-auto">
+      <section class="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 max-w-7xl mx-auto" aria-labelledby="hero-heading">
         <div class="max-w-5xl">
           <p class="fade-in-up text-xs font-bold tracking-widest text-brand-gray mb-8 uppercase font-inter">For Digital Artists</p>
-          <h1 class="fade-in-up delay-100 text-5xl md:text-8xl font-bold leading-tight tracking-tighter mb-10">
+          <h1 id="hero-heading" class="fade-in-up delay-100 text-5xl md:text-8xl font-bold leading-tight tracking-tighter mb-10">
             99%の画面領域。<br>
             <span class="text-gradient">0%のノイズ。</span>
           </h1>
@@ -136,11 +183,11 @@
           </p>
           
           <div class="fade-in-up delay-200 mb-16 flex flex-col sm:flex-row gap-8 items-start sm:items-center">
-             <a href="#download" class="group relative inline-flex items-center justify-center overflow-hidden rounded-full p-0.5 font-bold focus:outline-none">
+             <a href="#download" class="group relative inline-flex items-center justify-center overflow-hidden rounded-full p-0.5 font-bold focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 cta-pulse" aria-label="無料トライアルをダウンロード">
                <span class="absolute inset-0 bg-gradient-brand transition-all group-hover:opacity-80"></span>
                <span class="relative flex items-center gap-2 bg-white text-brand-black transition-all group-hover:bg-opacity-90 px-8 py-3 rounded-full">
                  無料で試す
-                 <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                 <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                </span>
              </a>
              <span class="text-xs text-brand-gray font-light">30日間無料トライアル / 以降 ¥480(税込)</span>
@@ -151,7 +198,7 @@
           <div class="img-placeholder aspect-[21/9]">
             <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">hero-main.png</span>
             <span class="text-xs font-light">高解像度の作品を表示中の、<br>余計な枠線が一切ないスクリーンショット</span>
-            <img src="./images/hero-main.png" class="hidden w-full h-full object-cover" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
+            <img src="./images/hero-main.png" alt="Swish Gallery - 余計な枠線がない、作品に集中できるインターフェース" class="hidden w-full h-full object-cover" loading="eager" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
           </div>
           <div class="absolute -right-4 -bottom-10 md:-right-10 md:-bottom-20 text-[10rem] md:text-[15rem] font-bold text-gray-100 opacity-30 -z-10 select-none pointer-events-none font-inter">
             01
@@ -172,7 +219,7 @@
             <div class="img-placeholder aspect-[4/3] mb-8">
               <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">feature-grayscale.png</span>
               <span class="text-xs font-light">カラー画像と、色価を保ったモノクロ変換後の画像の比較</span>
-              <img src="./images/feature-grayscale.png" class="hidden w-full h-full object-cover" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
+              <img src="./images/feature-grayscale.png" alt="色価を正確に保ったグレースケール変換の比較" class="hidden w-full h-full object-cover" loading="lazy" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
             </div>
             <p class="text-base font-light leading-relaxed text-brand-black max-w-prose">
               多くのビューアーが行う単純な彩度0加工では、輝度が正しく反映されません。Swish Galleryは、光と影の設計（バリュー・スタディ）において信頼できるプレビューを提供します。
@@ -187,7 +234,7 @@
              <div class="img-placeholder aspect-square bg-white shadow-xl shadow-blue-500/5">
               <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">feature-minimal.png</span>
               <span class="text-xs font-light">デスクトップ背景に「浮いている」ような<br>枠のないアプリウィンドウ</span>
-              <img src="./images/feature-minimal.png" class="hidden w-full h-full object-cover" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
+              <img src="./images/feature-minimal.png" alt="枠のないボーダーレスウィンドウデザイン" class="hidden w-full h-full object-cover" loading="lazy" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
             </div>
           </div>
           <div class="order-1 md:order-2 md:pl-10">
@@ -229,7 +276,7 @@
           <div class="img-placeholder aspect-[16/8]">
             <span class="font-medium text-xs tracking-widest uppercase mb-2 font-inter">feature-board.png</span>
             <span class="text-xs font-light">複数の画像がコラージュのように自由に配置されたボード</span>
-            <img src="./images/feature-board.png" class="hidden w-full h-full object-cover" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
+            <img src="./images/feature-board.png" alt="複数の画像を自由に配置できるリファレンスボード" class="hidden w-full h-full object-cover" loading="lazy" onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')" onerror="this.classList.add('hidden')" />
           </div>
         </div>
       </section>
@@ -305,8 +352,11 @@
                試用期間終了後は、<span class="text-white font-bold text-lg">480円</span>(税込) の買い切りで<br>
                永久ライセンスをご利用いただけます。
              </p>
-             <a href="#" class="inline-block bg-gradient-brand text-white px-12 py-4 rounded-full font-bold tracking-wider hover:scale-105 transition-transform duration-300 shadow-lg shadow-blue-500/25">
-               Microsoft Store で入手
+             <a href="#" class="inline-block bg-gradient-brand text-white px-12 py-4 rounded-full font-bold tracking-wider hover:scale-105 transition-transform duration-300 shadow-lg shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-800" aria-label="Microsoft Storeでダウンロード">
+               <span class="flex items-center gap-3">
+                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z"/></svg>
+                 Microsoft Store で入手
+               </span>
              </a>
           </div>
 
@@ -316,10 +366,51 @@
         </div>
       </section>
 
-      <footer class="py-12 px-6 text-center text-xs text-brand-gray font-medium tracking-widest uppercase font-inter">
-        <p>&copy; 2025 Swish Gallery</p>
+      <footer class="py-12 px-6 text-center text-xs text-brand-gray font-inter" role="contentinfo">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-4">
+          <a href="#" class="hover:text-brand-black transition-colors">プライバシーポリシー</a>
+          <a href="#" class="hover:text-brand-black transition-colors">利用規約</a>
+          <a href="#" class="hover:text-brand-black transition-colors">お問い合わせ</a>
+        </div>
+        <p class="font-medium tracking-widest uppercase">&copy; 2025 Swish Gallery</p>
       </footer>
 
     </main>
+    
+    <!-- スクロール検出スクリプト -->
+    <script>
+      // ヘッダーのスクロール時スタイル変更
+      const header = document.getElementById('header');
+      let lastScroll = 0;
+      
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+          header.classList.add('header-scrolled');
+        } else {
+          header.classList.remove('header-scrolled');
+        }
+        
+        lastScroll = currentScroll;
+      }, { passive: true });
+      
+      // スムーズスクロールの改善（Safari対応）
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
