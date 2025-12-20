@@ -71,7 +71,7 @@
         <!-- https://developers.google.com/analytics/ でプロパティを作成 -->
         <script
             async
-            src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+            src="https://www.googletagmanager.com/gtag/js?id=G-VNC17Y813X"
         ></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -79,7 +79,7 @@
                 dataLayer.push(arguments);
             }
             gtag("js", new Date());
-            gtag("config", "G-XXXXXXXXXX");
+            gtag("config", "G-VNC17Y813X");
         </script>
     </head>
 
@@ -99,7 +99,7 @@
                     <img
                         src="./assets/icons/logo.svg"
                         alt="Swish Gallery ロゴ"
-                        class="w-8 h-8 transition-transform duration-500 group-hover:rotate-180"
+                        class="w-8 h-8 transition-transform duration-500"
                     />
                     <span
                         class="font-semibold text-sm tracking-widest uppercase font-inter"
@@ -138,11 +138,10 @@
                         >
                     </h1>
                     <p
-                        class="fade-in-up delay-200 text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light"
+                        class="fade-in-up delay-200 text-lg md:text-xl leading-relaxed mb-10 font-light"
                     >
                         機能はコンパクトに、作品を画面いっぱいに。<br />
-                        UI
-                        を極限まで削ぎ落とし、作品とだけ向き合う時間を生み出す、
+                        UIを極限まで削ぎ落とし、作品とだけ向き合う時間を生み出す、<br />
                         Windows 用画像ビューア。
                     </p>
 
@@ -178,7 +177,7 @@
                 </div>
 
                 <div class="fade-in-up delay-300 w-full relative group">
-                    <div class="img-placeholder aspect-[21/9]">
+                    <div class="img-placeholder">
                         <img
                             src="./images/hero-main.png"
                             alt="Swish Gallery - 余計な枠線がない、作品に集中できるインターフェース"
@@ -210,7 +209,7 @@
                         </p>
                     </div>
                     <div class="md:col-span-8">
-                        <div class="aspect-[4/3] mb-8">
+                        <div class="aspect-4/3 mb-8">
                             <img
                                 src="./images/feature-grayscale.png"
                                 alt="色価を正確に保ったグレースケール変換の比較"
@@ -219,7 +218,7 @@
                             />
                         </div>
                         <p
-                            class="text-brand-gray text-sm leading-relaxed text-brand-black max-w-prose"
+                            class="text-sm leading-relaxed text-brand-black max-w-prose"
                         >
                             多くのビューアが行う単純な彩度 0
                             の加工では、実際の輝度やコントラストが正しく再現されません。
@@ -304,7 +303,7 @@
                 </div>
 
                 <div class="relative w-full">
-                    <div class="aspect-[16/8]">
+                    <div class="aspect-16/8">
                         <img
                             src="./images/feature-board.png"
                             alt="複数の画像を自由に配置できるリファレンスボード"
@@ -351,24 +350,7 @@
                             </p>
                         </div>
                     </div>
-                    <div
-                        class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1"
-                    >
-                        <span
-                            class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter"
-                            >02</span
-                        >
-                        <div>
-                            <h3
-                                class="font-bold text-lg mb-2 group-hover:text-gradient"
-                            >
-                                ラベル管理
-                            </h3>
-                            <p class="text-xs text-brand-gray leading-relaxed">
-                                フォルダを横断して、「背景」「ポーズ」など用途別にタグ付け。ツリー構造でより柔軟な管理が可能です。
-                            </p>
-                        </div>
-                    </div>
+
                     <div
                         class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-pink-500/10 hover:-translate-y-1"
                     >
@@ -384,6 +366,24 @@
                             </h3>
                             <p class="text-xs text-brand-gray leading-relaxed">
                                 ワンクリックでブックマークに追加し、すぐにアクセス。よく使う資料を素早く呼び出せます。
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1"
+                    >
+                        <span
+                            class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter"
+                            >02</span
+                        >
+                        <div>
+                            <h3
+                                class="font-bold text-lg mb-2 group-hover:text-gradient"
+                            >
+                                リファレンスボード
+                            </h3>
+                            <p class="text-xs text-brand-gray leading-relaxed">
+                                画像をリファレンスボードに自由に配置。アイデア出しや資料整理に最適です。
                             </p>
                         </div>
                     </div>
@@ -460,13 +460,19 @@
                 <div
                     class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-4"
                 >
-                    <a href="#" class="hover:text-brand-black transition-colors"
+                    <a
+                        href="https://x.com/cos_mos_f"
+                        class="hover:text-brand-black transition-colors"
                         >開発者X</a
                     >
-                    <a href="#" class="hover:text-brand-black transition-colors"
-                        >プライバシーポリシー</a
+                    <a
+                        href="https://swishnote.com"
+                        class="hover:text-brand-black transition-colors"
+                        >SWISH NOTE</a
                     >
-                    <a href="#" class="hover:text-brand-black transition-colors"
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSfW6YaHjNSy4eKL7cpYdM-Kk2KatAh4oqZCrA9-kh3h4o9HRg/viewform?usp=dialog"
+                        class="hover:text-brand-black transition-colors"
                         >お問い合わせ</a
                     >
                 </div>
