@@ -1,413 +1,519 @@
 <!DOCTYPE html>
 <html lang="ja" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 基本のタイトルと説明 -->
-  <title>SWISH GALLERY | 絵描きのためのフォトアプリ</title>
-  <meta
-    name="description"
-    content="絵描きのために作られた Windows 用画像ビューア(フォトアプリケーション)です。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能など、デジタルクリエイターの需要に特化したツールです。"
-  />
+        <!-- 基本のタイトルと説明 -->
+        <title>SWISH GALLERY | 絵描きのためのフォトアプリ</title>
+        <meta
+            name="description"
+            content="絵描きのために作られた Windows 用画像ビューア(フォトアプリケーション)です。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能など、デジタルクリエイターの需要に特化したツールです。"
+        />
 
-  <!-- インデックス許可（デフォルトですが、明示しておくと分かりやすい） -->
-  <meta name="robots" content="index,follow" />
+        <!-- インデックス許可（デフォルトですが、明示しておくと分かりやすい） -->
+        <meta name="robots" content="index,follow" />
 
-  <!-- 公開 URL が決まったら、ここをあなたのサイト URL に変更 -->
-  <link rel="canonical" href="https://gallery-app.swishnote.com/" />
+        <!-- 公開 URL が決まったら、ここをあなたのサイト URL に変更 -->
+        <link rel="canonical" href="https://gallery-app.swishnote.com/" />
 
-  <!-- OGP Meta Tags -->
-  <meta
-    property="og:title"
-    content="SWISH GALLERY | クリエイターのためのキャンバス"
-  />
-  <meta
-    property="og:description"
-    content="絵描きのために作られた Windows 用画像ビューア(フォトアプリケーション)です。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能など、デジタルクリエイターの需要に特化したツールです。"
-  />
-  <meta property="og:type" content="website" />
-  <!-- 公開 URL に合わせて必ず変更してください -->
-  <meta
-    property="og:url"
-    content="https://gallery-app.swishnote.com/"
-  />
-  <meta property="og:site_name" content="Swish Gallery" />
-  <meta
-    property="og:image"
-    content="https://gallery-app.swishnote.com/src/images/ogp.png"
-  />
+        <!-- OGP Meta Tags -->
+        <meta
+            property="og:title"
+            content="SWISH GALLERY | クリエイターのためのキャンバス"
+        />
+        <meta
+            property="og:description"
+            content="絵描きのために作られた Windows 用画像ビューア(フォトアプリケーション)です。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能など、デジタルクリエイターの需要に特化したツールです。"
+        />
+        <meta property="og:type" content="website" />
+        <!-- 公開 URL に合わせて必ず変更してください -->
+        <meta property="og:url" content="https://gallery-app.swishnote.com/" />
+        <meta property="og:site_name" content="Swish Gallery" />
+        <meta
+            property="og:image"
+            content="https://gallery-app.swishnote.com/src/images/ogp.png"
+        />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta
-    name="twitter:title"
-    content="SWISH GALLERY | クリエイターのためのキャンバス"
-  />
-  <meta
-    name="twitter:description"
-    content="絵描きのために作られた Windows 用画像ビューア(フォトアプリケーション)です。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能など、デジタルクリエイターの需要に特化したツールです。"
-  />
-  <!-- 公式アカウントがあれば @xxxx を入れる -->
-  <!-- <meta name="twitter:site" content="@your_account" /> -->
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="SWISH GALLERY | クリエイターのためのキャンバス"
+        />
+        <meta
+            name="twitter:description"
+            content="絵描きのために作られた Windows 用画像ビューア(フォトアプリケーション)です。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能など、デジタルクリエイターの需要に特化したツールです。"
+        />
+        <!-- 公式アカウントがあれば @xxxx を入れる -->
+        <!-- <meta name="twitter:site" content="@your_account" /> -->
 
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#0F172A" />
+        <!-- Theme Color -->
+        <meta name="theme-color" content="#0F172A" />
 
-  <!-- Favicon（配置に合わせてパスを変更） -->
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <!-- Favicon（配置に合わせてパスを変更） -->
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <!-- フォントなど（ここは元のまま） -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  >
+        <!-- フォントなど（ここは元のまま） -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
 
-  <!-- ビルドされたCSSファイル -->
-  <link rel="stylesheet" href="./styles.css">
+        <!-- ビルドされたCSSファイル -->
+        <link rel="stylesheet" href="./styles.css" />
 
-  <!-- Google Analytics（GA4）: 計測 ID を差し替えて使用 -->
-  <!-- https://developers.google.com/analytics/ でプロパティを作成 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-</head>
+        <!-- Google Analytics（GA4）: 計測 ID を差し替えて使用 -->
+        <!-- https://developers.google.com/analytics/ でプロパティを作成 -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-XXXXXXXXXX");
+        </script>
+    </head>
 
-  <body class="bg-white text-brand-black antialiased">
-    <!-- スキップリンク（アクセシビリティ） -->
-    <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+    <body class="bg-white text-brand-black antialiased">
+        <!-- スキップリンク（アクセシビリティ） -->
+        <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
 
-    <header
-      id="header"
-      class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 transition-all duration-300 border-b border-transparent"
-      role="banner"
-    >
-      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#" class="flex items-center gap-3 group">
-          <img
-            src="./assets/icons/logo.svg"
-            alt="Swish Gallery ロゴ"
-            class="w-8 h-8 transition-transform duration-500 group-hover:rotate-180"
-          />
-          <span class="font-semibold text-sm tracking-widest uppercase font-inter">Swish Gallery</span>
-        </a>
-        <nav aria-label="メインナビゲーション">
-          <a
-            href="#download"
-            class="text-xs font-bold tracking-widest uppercase border-b-2 border-transparent hover:border-brand-gray transition-colors pb-1"
-          >
-            ダウンロード
-          </a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main-content" role="main">
-      <section
-        class="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 max-w-7xl mx-auto"
-        aria-labelledby="hero-heading"
-      >
-        <div class="max-w-5xl">
-          <p class="fade-in-up text-xs font-bold tracking-widest text-brand-gray mb-8 uppercase font-inter">
-            全デジタルクリエイターへ
-          </p>
-          <h1 id="hero-heading" class="fade-in-up delay-100 text-5xl md:text-8xl font-bold leading-tight tracking-tighter mb-10">
-
-            --準備中--<br />
-            <span class="text-gradient">公開までしばしお待ちを</span>
-
-           
-          </h1>
-          <p class="fade-in-up delay-200 text-lg md:text-xl  max-w-xl leading-relaxed mb-10 font-light">
-            機能はコンパクトに、作品をいっぱいに<br />
-            UI を極限まで削ぎ落とし、作品とだけ向き合う時間を生み出す Windows 用画像ビューア
-          </p>
-
-          <div class="fade-in-up delay-200 mb-16 flex flex-col sm:flex-row gap-8 items-start sm:items-center">
-            <a
-              href="#download"
-              class="group relative inline-flex items-center justify-center overflow-hidden rounded-full p-0.5 font-bold focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 cta-pulse"
-              aria-label="無料トライアル情報へ移動"
-              onclick="gtag && gtag('event', 'click_download_cta', { event_category: 'engagement', event_label: 'hero_cta' });"
+        <header
+            id="header"
+            class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 transition-all duration-300 border-b border-transparent"
+            role="banner"
+        >
+            <div
+                class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
             >
-              <span class="absolute inset-0 bg-gradient-brand transition-all group-hover:opacity-80"></span>
-              <span
-                class="relative flex items-center gap-2 bg-white text-brand-black transition-all group-hover:bg-opacity-90 px-8 py-3 rounded-full"
-              >
-                無料で試す
-                <img
-                  src="./assets/icons/arrow-right.svg"
-                  alt=""
-                  class="w-4 h-4 transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </span>
-            </a>
-            <span class="text-xs text-brand-gray font-light">30 日間の無料トライアル / 以降 ¥480（税込・買い切り）</span>
-          </div>
-        </div>
-
-        <div class="fade-in-up delay-300 w-full relative group">
-          <div class="img-placeholder aspect-[21/9]">
-            <img
-              src="./images/hero-main.png"
-              alt="Swish Gallery - 余計な枠線がない、作品に集中できるインターフェース"
-              class="hidden w-full h-full object-cover"
-              loading="eager"
-              onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')"
-              onerror="this.classList.add('hidden')"
-            />
-          </div>
-          <div
-            class="absolute -right-4 -bottom-10 md:-right-10 md:-bottom-20 text-[10rem] md:text-[15rem] font-bold text-gray-100 opacity-30 -z-10 select-none pointer-events-none font-inter"
-          >
-            01
-          </div>
-        </div>
-      </section>
-
-      <section class="py-32 md:py-48 px-6 max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-start">
-          <div class="md:col-span-4 top-32">
-            <h2 class="text-4xl font-bold mb-6 leading-tight">正確な<br />「色価」</h2>
-            <p class="text-base font-light  leading-relaxed">
-              彩度を落とすだけでは見えてこない情報があります。<br />
-              人間の視覚特性を踏まえた、信頼できるグレースケール。
-            </p>
-          </div>
-          <div class="md:col-span-8">
-            <div class="aspect-[4/3] mb-8">
-              <img
-                src="./images/feature-grayscale.png"
-                alt="色価を正確に保ったグレースケール変換の比較"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
+                <a href="#" class="flex items-center gap-3 group">
+                    <img
+                        src="./assets/icons/logo.svg"
+                        alt="Swish Gallery ロゴ"
+                        class="w-8 h-8 transition-transform duration-500 group-hover:rotate-180"
+                    />
+                    <span
+                        class="font-semibold text-sm tracking-widest uppercase font-inter"
+                        >Swish Gallery</span
+                    >
+                </a>
+                <nav aria-label="メインナビゲーション">
+                    <a
+                        href="#download"
+                        class="text-xs font-bold tracking-widest uppercase border-b-2 border-transparent hover:border-brand-gray transition-colors pb-1"
+                    >
+                        ダウンロード
+                    </a>
+                </nav>
             </div>
-            <p class="text-brand-gray text-sm leading-relaxed text-brand-black max-w-prose">
-              多くのビューアが行う単純な彩度 0 の加工では、実際の輝度やコントラストが正しく再現されません。
-              Swish Gallery は、光と影の設計（バリュー・スタディ）のために、頼れるグレースケールプレビューを提供します。
-            </p>
-          </div>
-        </div>
-      </section>
+        </header>
 
-      <section class="py-32 md:py-48 px-6 max-w-7xl mx-auto bg-gray-50/80">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-          <div class="order-2 md:order-1 relative">
-            <div class="aspect-square bg-white shadow-xl shadow-blue-500/5">
-              <img
-                src="./images/feature-minimal.png"
-                alt="枠のないボーダーレスウィンドウデザイン"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
-          <div class="order-1 md:order-2 md:pl-10">
-            <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-8 text-black leading-tight">
-              ミニマルな<br />インターフェース
-            </h2>
-            <div class="w-12 h-1 bg-gradient-brand mb-8 rounded-full"></div>
-            <p class="text-brand-gray text-lg font-light leading-relaxed mb-8">
-              ウィンドウ枠、タイトルバー、メニュー。<br />
-              これらは貴重な画面面積を奪います。<br />
-              画像サイズにフィットするウィンドウで、<br />
-              モニターを最大限に活用できます。
-            </p>
-            <ul class="space-y-4 text-sm font-medium tracking-wide font-inter">
-              <li class="flex items-center gap-3">
-                <span class="block w-2 h-2 bg-gradient-brand rounded-full"></span>
-                枠のないデザイン
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="block w-2 h-2 bg-gray-200 rounded-full"></span>
-                画像サイズに合わせたウィンドウ
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="block w-2 h-2 bg-gray-200 rounded-full"></span>
-                  シームレスなグリッド表示
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-32 md:py-48 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-24">
-          <h2 class="text-3xl md:text-5xl font-bold tracking-tighter mb-6 leading-tight">思考を広げるキャンバス</h2>
-          <p class="text-brand-gray font-light">アイデアを自由に配置するリファレンスボード。</p>
-        </div>
-
-        <div class="relative w-full">
-          <div class="aspect-[16/8]">
-            <img
-              src="./images/feature-board.png"
-              alt="複数の画像を自由に配置できるリファレンスボード"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section class="py-32 px-6 max-w-4xl mx-auto border-t border-gray-100">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
-          <h2 class="text-3xl font-bold tracking-tighter leading-tight">スマートな管理</h2>
-          <p class="text-sm text-brand-gray mt-4 md:mt-0">フォルダ・ブックマーク・ラベルで、柔軟に資料を整理。</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div
-            class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1"
-          >
-            <span
-              class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter"
-              >01</span
+        <main id="main-content" role="main">
+            <section
+                class="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 max-w-7xl mx-auto"
+                aria-labelledby="hero-heading"
             >
-            <div>
-              <h3 class="font-bold text-lg mb-2 group-hover:text-gradient">フォルダツリー</h3>
-              <p class="text-xs text-brand-gray leading-relaxed">
-                OS のディレクトリ構造をそのまま美しく表示。好きなフォルダを追加してカスタマイズも出来ます。
-              </p>
-            </div>
-          </div>
-          <div
-            class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1"
-          >
-            <span
-              class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter"
-              >02</span
+                <div class="max-w-5xl">
+                    <p
+                        class="fade-in-up text-xs font-bold tracking-widest text-brand-gray mb-8 uppercase font-inter"
+                    >
+                        全デジタルクリエイターへ
+                    </p>
+                    <h1
+                        id="hero-heading"
+                        class="fade-in-up delay-100 text-5xl md:text-8xl font-bold leading-tight tracking-tighter mb-10"
+                    >
+                        --準備中--<br />
+                        <span class="text-gradient"
+                            >公開までしばしお待ちを</span
+                        >
+                    </h1>
+                    <p
+                        class="fade-in-up delay-200 text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light"
+                    >
+                        機能はコンパクトに、作品を画面いっぱいに。<br />
+                        UI
+                        を極限まで削ぎ落とし、作品とだけ向き合う時間を生み出す、
+                        Windows 用画像ビューア。
+                    </p>
+
+                    <div
+                        class="fade-in-up delay-200 mb-16 flex flex-col sm:flex-row gap-8 items-start sm:items-center"
+                    >
+                        <a
+                            href="#download"
+                            class="group relative inline-flex items-center justify-center overflow-hidden rounded-full p-0.5 font-bold focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 cta-pulse"
+                            aria-label="無料トライアル情報へ移動"
+                            onclick="gtag && gtag('event', 'click_download_cta', { event_category: 'engagement', event_label: 'hero_cta' });"
+                        >
+                            <span
+                                class="absolute inset-0 bg-gradient-brand transition-all group-hover:opacity-80"
+                            ></span>
+                            <span
+                                class="relative flex items-center gap-2 bg-white text-brand-black transition-all group-hover:bg-opacity-90 px-8 py-3 rounded-full"
+                            >
+                                無料で試す
+                                <img
+                                    src="./assets/icons/arrow-right.svg"
+                                    alt=""
+                                    class="w-4 h-4 transition-transform group-hover:translate-x-1"
+                                    aria-hidden="true"
+                                />
+                            </span>
+                        </a>
+                        <span class="text-xs text-brand-gray font-light"
+                            >30 日間の無料トライアル / 以降
+                            ¥480（税込・買い切り）</span
+                        >
+                    </div>
+                </div>
+
+                <div class="fade-in-up delay-300 w-full relative group">
+                    <div class="img-placeholder aspect-[21/9]">
+                        <img
+                            src="./images/hero-main.png"
+                            alt="Swish Gallery - 余計な枠線がない、作品に集中できるインターフェース"
+                            class="hidden w-full h-full object-cover"
+                            loading="eager"
+                            onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')"
+                            onerror="this.classList.add('hidden')"
+                        />
+                    </div>
+                    <div
+                        class="absolute -right-4 -bottom-10 md:-right-10 md:-bottom-20 text-[10rem] md:text-[15rem] font-bold text-gray-100 opacity-30 -z-10 select-none pointer-events-none font-inter"
+                    >
+                        01
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-32 md:py-48 px-6 max-w-5xl mx-auto">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-start"
+                >
+                    <div class="md:col-span-4 top-32">
+                        <h2 class="text-4xl font-bold mb-6 leading-tight">
+                            正確な<br />「色価」
+                        </h2>
+                        <p class="text-base font-light leading-relaxed">
+                            彩度を落とすだけでは見えてこない情報があります。<br />
+                            人間の視覚特性を踏まえた、信頼できるグレースケール。
+                        </p>
+                    </div>
+                    <div class="md:col-span-8">
+                        <div class="aspect-[4/3] mb-8">
+                            <img
+                                src="./images/feature-grayscale.png"
+                                alt="色価を正確に保ったグレースケール変換の比較"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+                        <p
+                            class="text-brand-gray text-sm leading-relaxed text-brand-black max-w-prose"
+                        >
+                            多くのビューアが行う単純な彩度 0
+                            の加工では、実際の輝度やコントラストが正しく再現されません。
+                            Swish Gallery
+                            は、光と影の設計（バリュー・スタディ）のために、頼れるグレースケールプレビューを提供します。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="py-32 md:py-48 px-6 max-w-7xl mx-auto bg-gray-50/80"
             >
-            <div>
-              <h3 class="font-bold text-lg mb-2 group-hover:text-gradient">ラベル管理</h3>
-              <p class="text-xs text-brand-gray leading-relaxed">
-                フォルダを横断して、「背景」「ポーズ」など用途別にタグ付け。ツリー構造でより柔軟な管理が可能です。
-              </p>
-            </div>
-          </div>
-          <div
-            class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-pink-500/10 hover:-translate-y-1"
-          >
-            <span
-              class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter"
-              >03</span
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center"
+                >
+                    <div class="order-2 md:order-1 relative">
+                        <div
+                            class="aspect-square bg-white shadow-xl shadow-blue-500/5"
+                        >
+                            <img
+                                src="./images/feature-minimal.png"
+                                alt="枠のないボーダーレスウィンドウデザイン"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 md:pl-10">
+                        <h2
+                            class="text-4xl md:text-5xl font-bold tracking-tighter mb-8 text-black leading-tight"
+                        >
+                            ミニマルな<br />インターフェース
+                        </h2>
+                        <div
+                            class="w-12 h-1 bg-gradient-brand mb-8 rounded-full"
+                        ></div>
+                        <p
+                            class="text-brand-gray text-lg font-light leading-relaxed mb-8"
+                        >
+                            ウィンドウ枠、タイトルバー、メニュー。<br />
+                            これらは貴重な画面面積を奪います。<br />
+                            画像サイズにフィットするウィンドウで、<br />
+                            モニターを最大限に活用できます。
+                        </p>
+                        <ul
+                            class="space-y-4 text-sm font-medium tracking-wide font-inter"
+                        >
+                            <li class="flex items-center gap-3">
+                                <span
+                                    class="block w-2 h-2 bg-gradient-brand rounded-full"
+                                ></span>
+                                枠のないデザイン
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span
+                                    class="block w-2 h-2 bg-gray-200 rounded-full"
+                                ></span>
+                                画像サイズに合わせたウィンドウ
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span
+                                    class="block w-2 h-2 bg-gray-200 rounded-full"
+                                ></span>
+                                シームレスなグリッド表示
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-32 md:py-48 px-6 max-w-7xl mx-auto">
+                <div class="text-center mb-24">
+                    <h2
+                        class="text-3xl md:text-5xl font-bold tracking-tighter mb-6 leading-tight"
+                    >
+                        思考を広げるキャンバス
+                    </h2>
+                    <p class="text-brand-gray font-light">
+                        アイデアを自由に配置するリファレンスボード。
+                    </p>
+                </div>
+
+                <div class="relative w-full">
+                    <div class="aspect-[16/8]">
+                        <img
+                            src="./images/feature-board.png"
+                            alt="複数の画像を自由に配置できるリファレンスボード"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="py-32 px-6 max-w-4xl mx-auto border-t border-gray-100"
             >
-            <div>
-              <h3 class="font-bold text-lg mb-2 group-hover:text-gradient">ブックマーク</h3>
-              <p class="text-xs text-brand-gray leading-relaxed">
-                ワンクリックでブックマークに追加し、すぐにアクセス。よく使う資料を素早く呼び出せます。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+                <div
+                    class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16"
+                >
+                    <h2
+                        class="text-3xl font-bold tracking-tighter leading-tight"
+                    >
+                        スマートな管理
+                    </h2>
+                    <p class="text-sm text-brand-gray mt-4 md:mt-0">
+                        フォルダ・ブックマーク・ラベルで、柔軟に資料を整理。
+                    </p>
+                </div>
 
-      <section id="download" class="py-32 px-6 bg-gradient-dark text-white text-center relative overflow-hidden">
-        <div
-          class="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 -translate-y-1/2"
-        ></div>
-        <div
-          class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 translate-y-1/2"
-        ></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1"
+                    >
+                        <span
+                            class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter"
+                            >01</span
+                        >
+                        <div>
+                            <h3
+                                class="font-bold text-lg mb-2 group-hover:text-gradient"
+                            >
+                                フォルダツリー
+                            </h3>
+                            <p class="text-xs text-brand-gray leading-relaxed">
+                                OS
+                                のディレクトリ構造をそのまま美しく表示。好きなフォルダを追加してカスタマイズも出来ます。
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1"
+                    >
+                        <span
+                            class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter"
+                            >02</span
+                        >
+                        <div>
+                            <h3
+                                class="font-bold text-lg mb-2 group-hover:text-gradient"
+                            >
+                                ラベル管理
+                            </h3>
+                            <p class="text-xs text-brand-gray leading-relaxed">
+                                フォルダを横断して、「背景」「ポーズ」など用途別にタグ付け。ツリー構造でより柔軟な管理が可能です。
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-pink-500/10 hover:-translate-y-1"
+                    >
+                        <span
+                            class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter"
+                            >03</span
+                        >
+                        <div>
+                            <h3
+                                class="font-bold text-lg mb-2 group-hover:text-gradient"
+                            >
+                                ブックマーク
+                            </h3>
+                            <p class="text-xs text-brand-gray leading-relaxed">
+                                ワンクリックでブックマークに追加し、すぐにアクセス。よく使う資料を素早く呼び出せます。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <div class="max-w-3xl mx-auto relative z-10">
-          <img
-            src="./assets/icons/logo.svg"
-            alt="Swish Gallery アイコン"
-            class="w-16 h-16 mx-auto mb-8 animate-pulse"
-          />
-
-          <h2 class="text-4xl md:text-6xl font-bold tracking-tighter mb-8 leading-tight">
-            創作環境を、<br />もっと自由に。
-          </h2>
-
-          <div class="mb-12 border border-white/10 inline-block p-8 rounded-2xl bg-white/5 backdrop-blur-md">
-            <p class="text-xl font-bold mb-2">まずは 30 日間、無料でお試しください。</p>
-            <p class="text-gray-300 text-sm mb-8">
-              試用期間終了後は、<span class="text-white font-bold text-lg">480 円</span>（税込）の買い切りで、<br />
-              以降はずっと同じ環境をお使いいただけます。
-            </p>
-            <a
-              href="#"
-              class="inline-block bg-gradient-brand text-white px-12 py-4 rounded-full font-bold tracking-wider hover:scale-105 transition-transform duration-300 shadow-lg shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-800"
-              aria-label="Microsoft Store でダウンロード"
-              onclick="gtag && gtag('event', 'click_store', { event_category: 'engagement', event_label: 'download_section' });"
+            <section
+                id="download"
+                class="py-32 px-6 bg-gradient-dark text-white text-center relative overflow-hidden"
             >
-              <span class="flex items-center gap-3">
-                <img
-                  src="./assets/icons/microsoft-store.svg"
-                  alt=""
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                />
-                Microsoft Store で入手
-              </span>
-            </a>
-          </div>
+                <div
+                    class="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 -translate-y-1/2"
+                ></div>
+                <div
+                    class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 translate-y-1/2"
+                ></div>
 
-          <p class="text-xs text-gray-400 font-medium tracking-widest uppercase">
-            Windows 10 / 11 対応
-          </p>
-        </div>
-      </section>
+                <div class="max-w-3xl mx-auto relative z-10">
+                    <img
+                        src="./assets/icons/logo.svg"
+                        alt="Swish Gallery アイコン"
+                        class="w-16 h-16 mx-auto mb-8 animate-pulse"
+                    />
 
-      <footer class="py-12 px-6 text-center text-xs text-brand-gray font-inter" role="contentinfo">
-        <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-4">
-          <a href="#" class="hover:text-brand-black transition-colors">開発者X</a>
-          <a href="#" class="hover:text-brand-black transition-colors">プライバシーポリシー</a>
-          <a href="#" class="hover:text-brand-black transition-colors">お問い合わせ</a>
-        </div>
-        <p class="font-medium tracking-widest uppercase">&copy; 2025 SWISH GALLERY from SWISH NOTE</p>
-      </footer>
-    </main>
+                    <h2
+                        class="text-4xl md:text-6xl font-bold tracking-tighter mb-8 leading-tight"
+                    >
+                        創作環境を、<br />もっと自由に。
+                    </h2>
 
-    <!-- スクロール検出スクリプト -->
-    <script>
-      // ヘッダーのスクロール時スタイル変更
-      const header = document.getElementById("header");
-      let lastScroll = 0;
+                    <div
+                        class="mb-12 border border-white/10 inline-block p-8 rounded-2xl bg-white/5 backdrop-blur-md"
+                    >
+                        <p class="text-xl font-bold mb-2">
+                            まずは 30 日間、無料でお試しください。
+                        </p>
+                        <p class="text-gray-300 text-sm mb-8">
+                            試用期間終了後は、<span
+                                class="text-white font-bold text-lg"
+                                >480 円</span
+                            >（税込）の買い切りで、<br />
+                            以降はずっと同じ環境をお使いいただけます。
+                        </p>
+                        <a
+                            href="#"
+                            class="inline-block bg-gradient-brand text-white px-12 py-4 rounded-full font-bold tracking-wider hover:scale-105 transition-transform duration-300 shadow-lg shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-800"
+                            aria-label="Microsoft Store でダウンロード"
+                            onclick="gtag && gtag('event', 'click_store', { event_category: 'engagement', event_label: 'download_section' });"
+                        >
+                            <span class="flex items-center gap-3">
+                                <img
+                                    src="./assets/icons/microsoft-store.svg"
+                                    alt=""
+                                    class="w-5 h-5"
+                                    aria-hidden="true"
+                                />
+                                Microsoft Store で入手
+                            </span>
+                        </a>
+                    </div>
 
-      window.addEventListener(
-        "scroll",
-        () => {
-          const currentScroll = window.pageYOffset;
+                    <p
+                        class="text-xs text-gray-400 font-medium tracking-widest uppercase"
+                    >
+                        Windows 10 / 11 対応
+                    </p>
+                </div>
+            </section>
 
-          if (currentScroll > 50) {
-            header.classList.add("header-scrolled");
-          } else {
-            header.classList.remove("header-scrolled");
-          }
+            <footer
+                class="py-12 px-6 text-center text-xs text-brand-gray font-inter"
+                role="contentinfo"
+            >
+                <div
+                    class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-4"
+                >
+                    <a href="#" class="hover:text-brand-black transition-colors"
+                        >開発者X</a
+                    >
+                    <a href="#" class="hover:text-brand-black transition-colors"
+                        >プライバシーポリシー</a
+                    >
+                    <a href="#" class="hover:text-brand-black transition-colors"
+                        >お問い合わせ</a
+                    >
+                </div>
+                <p class="font-medium tracking-widest uppercase">
+                    &copy; 2025 SWISH GALLERY from SWISH NOTE
+                </p>
+            </footer>
+        </main>
 
-          lastScroll = currentScroll;
-        },
-        { passive: true }
-      );
+        <!-- スクロール検出スクリプト -->
+        <script>
+            // ヘッダーのスクロール時スタイル変更
+            const header = document.getElementById("header");
+            let lastScroll = 0;
 
-      // スムーズスクロールの改善（Safari対応）
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          const targetId = this.getAttribute("href");
-          if (targetId === "#") return;
+            window.addEventListener(
+                "scroll",
+                () => {
+                    const currentScroll = window.pageYOffset;
 
-          const target = document.querySelector(targetId);
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
+                    if (currentScroll > 50) {
+                        header.classList.add("header-scrolled");
+                    } else {
+                        header.classList.remove("header-scrolled");
+                    }
+
+                    lastScroll = currentScroll;
+                },
+                { passive: true }
+            );
+
+            // スムーズスクロールの改善（Safari対応）
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    const targetId = this.getAttribute("href");
+                    if (targetId === "#") return;
+
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                    }
+                });
             });
-          }
-        });
-      });
-    </script>
-  </body>
+        </script>
+    </body>
 </html>
