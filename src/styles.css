@@ -319,6 +319,12 @@
   .inline-flex {
     display: inline-flex;
   }
+  .aspect-4\/3 {
+    aspect-ratio: 4/3;
+  }
+  .aspect-16\/8 {
+    aspect-ratio: 16/8;
+  }
   .aspect-\[4\/3\] {
     aspect-ratio: 4/3;
   }
