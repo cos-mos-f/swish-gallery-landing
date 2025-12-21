@@ -1,0 +1,56 @@
+<svg viewBox="0 0 1667 1667" fill="none" xmlns="http://www.w3.org/2000/svg" width="400" height="400">
+  <rect x="0" y="0" width="1667" height="1667" fill="none" />
+  <g transform="matrix(2 0 0 2 -1667 -1667)">
+    <circle cx="1250.25" cy="1250.25" r="416.75" fill="white" />
+  </g>
+  <path
+    d="M416 539L520 516L624 490L728 467L832 448L936 436L1040 431L1144 430L1249 436L1249 563L1144 557L1040 558L936 564L832 575L728 594L624 617L520 643L416 666L416 539Z"
+    fill="url(#logo-grad1)"
+  />
+  <path
+    d="M416 763L520 784L624 800L728 811L832 816L936 815L1040 809L1144 796L1249 777L1249 904L1144 923L1040 936L936 942L832 943L728 938L624 927L520 911L416 890L416 763Z"
+    fill="url(#logo-grad2)"
+  />
+  <path
+    d="M416 1108L520 1102L624 1090L728 1071L832 1047L936 1021L1040 999L1144 982L1249 972L1249 1099L1144 1109L1040 1126L936 1148L832 1174L728 1198L624 1217L520 1229L416 1235L416 1108Z"
+    fill="url(#logo-grad3)"
+  />
+  <defs>
+    <linearGradient
+      id="logo-grad1"
+      x1="0"
+      y1="0"
+      x2="1"
+      y2="0"
+      gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(1667 1667 -1667 1667 0 0)"
+    >
+      <stop offset="0" stop-color="rgb(171,227,234)" />
+      <stop offset="1" stop-color="rgb(72,173,255)" />
+    </linearGradient>
+    <linearGradient
+      id="logo-grad2"
+      x1="0"
+      y1="0"
+      x2="1"
+      y2="0"
+      gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(1667 1667 -1667 1667 0 0)"
+    >
+      <stop offset="0" stop-color="rgb(71,235,255)" />
+      <stop offset="1" stop-color="rgb(237,36,193)" />
+    </linearGradient>
+    <linearGradient
+      id="logo-grad3"
+      x1="0"
+      y1="0"
+      x2="1"
+      y2="0"
+      gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(1667 1667 -1667 1667 0 0)"
+    >
+      <stop offset="0" stop-color="rgb(178,114,255)" />
+      <stop offset="1" stop-color="rgb(255,115,179)" />
+    </linearGradient>
+  </defs>
+</svg>
