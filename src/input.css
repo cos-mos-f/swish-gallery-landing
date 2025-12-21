@@ -127,3 +127,30 @@ body {
 .bg-gradient-dark {
   background-image: linear-gradient(to bottom, #0F172A, #1E293B);
 }
+
+@media (max-width: 900px) {
+  .colorvalue-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .colorvalue-text,
+  .colorvalue-media {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 48rem) {
+  .colorvalue-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: clamp(2rem, 4vw, 4.5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header-inner {
+    padding-inline: 2rem;
+  }
+  .site-header-link {
+    padding-inline: 0.25rem;
+  }
+}

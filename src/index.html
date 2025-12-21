@@ -316,11 +316,11 @@
 
         <header
             id="header"
-            class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 transition-all duration-300 border-b border-transparent"
+            class="site-header fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 transition-all duration-300 border-b border-transparent"
             role="banner"
         >
             <div
-                class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
+                class="site-header-inner max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
             >
                 <a href="#" class="flex items-center gap-3 group">
                     <img
@@ -336,7 +336,7 @@
                 <nav aria-label="メインナビゲーション">
                     <a
                         href="#download"
-                        class="text-xs font-bold tracking-widest uppercase border-b-2 border-transparent hover:border-brand-gray transition-colors pb-1"
+                        class="site-header-link text-xs font-bold tracking-widest uppercase border-b-2 border-transparent hover:border-brand-gray transition-colors pb-1"
                     >
                         ダウンロード
                     </a>
@@ -346,7 +346,7 @@
 
         <main id="main-content" role="main">
             <section
-                class="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 max-w-7xl mx-auto"
+                class="hero-section min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 max-w-7xl mx-auto"
                 aria-labelledby="hero-heading"
             >
                 <div class="max-w-5xl">
@@ -357,13 +357,13 @@
                     </p>
                     <h1
                         id="hero-heading"
-                        class="fade-in-up delay-100 text-5xl md:text-8xl font-bold leading-tight tracking-tighter mb-10"
+                        class="hero-title fade-in-up delay-100 text-5xl md:text-8xl font-bold leading-tight tracking-tighter mb-10"
                     >
                         ウィンドウの99%を<br />
                         <span class="text-gradient">創作のために</span>
                     </h1>
                     <p
-                        class="fade-in-up delay-200 text-lg md:text-xl leading-relaxed mb-10 font-light"
+                        class="hero-lead fade-in-up delay-200 text-lg md:text-xl leading-relaxed mb-10 font-light"
                     >
                         機能はコンパクトに、作品を画面いっぱいに。<br />
                         UIを極限まで削ぎ落とし、作品とだけ向き合う時間を生み出す、<br />
@@ -413,18 +413,20 @@
                         />
                     </div>
                     <div
-                        class="absolute -right-4 -bottom-10 md:-right-10 md:-bottom-20 text-[10rem] md:text-[15rem] font-bold text-gray-100 opacity-30 -z-10 select-none pointer-events-none font-inter"
+                        class="hero-index absolute -right-4 -bottom-10 md:-right-10 md:-bottom-20 text-[10rem] md:text-[15rem] font-bold text-gray-100 opacity-30 -z-10 select-none pointer-events-none font-inter"
                     >
                         01
                     </div>
                 </div>
             </section>
 
-            <section class="py-32 md:py-48 px-6 max-w-5xl mx-auto">
+            <section
+                class="section-block py-32 md:py-48 px-6 max-w-5xl mx-auto"
+            >
                 <div
-                    class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-start"
+                    class="grid grid-cols-1 items-start colorvalue-grid"
                 >
-                    <div class="md:col-span-4 top-32">
+                    <div class="top-32 colorvalue-text">
                         <h2 class="text-4xl font-bold mb-6 leading-tight">
                             正確な<br />「色価」
                         </h2>
@@ -433,7 +435,7 @@
                             人間の視覚特性を踏まえた、信頼できるグレースケール。
                         </p>
                     </div>
-                    <div class="md:col-span-8">
+                    <div class="colorvalue-media">
                         <div class="aspect-4/3 mb-8">
                             <img
                                 src="./images/feature-grayscale.png"
@@ -455,7 +457,7 @@
             </section>
 
             <section
-                class="py-32 md:py-48 px-6 max-w-7xl mx-auto bg-gray-50/80"
+                class="section-block py-32 md:py-48 px-6 max-w-7xl mx-auto bg-gray-50/80"
             >
                 <div
                     class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center"
@@ -515,7 +517,9 @@
                 </div>
             </section>
 
-            <section class="py-32 md:py-48 px-6 max-w-7xl mx-auto">
+            <section
+                class="section-block py-32 md:py-48 px-6 max-w-7xl mx-auto"
+            >
                 <div class="text-center mb-24">
                     <h2
                         class="text-3xl md:text-5xl font-bold tracking-tighter mb-6 leading-tight"
@@ -540,7 +544,7 @@
             </section>
 
             <section
-                class="py-32 px-6 max-w-4xl mx-auto border-t border-gray-100"
+                class="section-block py-32 px-6 max-w-4xl mx-auto border-t border-gray-100"
             >
                 <div
                     class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16"
@@ -557,7 +561,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div
-                        class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1"
+                        class="feature-card bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1"
                     >
                         <span
                             class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter"
@@ -577,7 +581,7 @@
                     </div>
 
                     <div
-                        class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-pink-500/10 hover:-translate-y-1"
+                        class="feature-card bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-pink-500/10 hover:-translate-y-1"
                     >
                         <span
                             class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter"
@@ -595,7 +599,7 @@
                         </div>
                     </div>
                     <div
-                        class="bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1"
+                        class="feature-card bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1"
                     >
                         <span
                             class="text-xs font-bold tracking-widest uppercase text-brand-gray group-hover:text-gradient font-inter"
@@ -617,7 +621,7 @@
 
             <section
                 id="download"
-                class="py-32 px-6 bg-gradient-dark text-white text-center relative overflow-hidden"
+                class="download-section py-32 px-6 bg-gradient-dark text-white text-center relative overflow-hidden"
             >
                 <div
                     class="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 -translate-y-1/2"
@@ -640,7 +644,7 @@
                     </h2>
 
                     <div
-                        class="mb-12 border border-white/10 inline-block p-8 rounded-2xl bg-white/5 backdrop-blur-md"
+                        class="download-panel mb-12 border border-white/10 inline-block p-8 rounded-2xl bg-white/5 backdrop-blur-md"
                     >
                         <p class="text-xl font-bold mb-2">
                             まずは 30 日間、無料でお試しください。
