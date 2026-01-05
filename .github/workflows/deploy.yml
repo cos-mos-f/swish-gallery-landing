@@ -35,13 +35,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build CSS with Tailwind
+      - name: Build with Astro
         run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./src
+          path: ./dist
 
   deploy:
     runs-on: ubuntu-latest

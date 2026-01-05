@@ -1,3 +1,7 @@
+---
+import '../styles/global.css';
+---
+
 <!DOCTYPE html>
 <html lang="ja" class="scroll-smooth">
     <head>
@@ -292,15 +296,13 @@
             rel="stylesheet"
         />
 
-        <!-- ビルドされたCSSファイル -->
-        <link rel="stylesheet" href="./styles.css" />
-
         <!-- Google Analytics -->
         <script
+            is:inline
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-VNC17Y813X"
         ></script>
-        <script>
+        <script is:inline>
             window.dataLayer = window.dataLayer || [];
             function gtag() {
                 dataLayer.push(arguments);
@@ -324,7 +326,7 @@
             >
                 <a href="#" class="flex items-center gap-3 group">
                     <img
-                        src="./assets/icons/logo.svg"
+                        src="/assets/icons/logo.svg"
                         alt="Swish Gallery ロゴ"
                         class="w-8 h-8 transition-transform duration-500"
                     />
@@ -387,7 +389,7 @@
                             >
                                 無料で試す
                                 <img
-                                    src="./assets/icons/arrow-right.svg"
+                                    src="/assets/icons/arrow-right.svg"
                                     alt=""
                                     class="w-4 h-4 transition-transform group-hover:translate-x-1"
                                     aria-hidden="true"
@@ -404,7 +406,7 @@
                 <div class="fade-in-up delay-300 w-full relative group">
                     <div class="img-placeholder">
                         <img
-                            src="./images/hero-main.png"
+                            src="/images/hero-main.png"
                             alt="Swish Gallery - 余計な枠線がない、作品に集中できるインターフェース"
                             class="hidden w-full h-full object-cover"
                             loading="eager"
@@ -436,9 +438,9 @@
                         </p>
                     </div>
                     <div class="colorvalue-media">
-                        <div class="aspect-4/3 mb-8">
+                        <div class="aspect-[4/3] mb-8">
                             <img
-                                src="./images/feature-grayscale.png"
+                                src="/images/feature-grayscale.png"
                                 alt="色価を正確に保ったグレースケール変換の比較"
                                 class="w-full h-full object-cover"
                                 loading="lazy"
@@ -467,7 +469,7 @@
                             class="aspect-square bg-white shadow-xl shadow-blue-500/5"
                         >
                             <img
-                                src="./images/feature-minimal.png"
+                                src="/images/feature-minimal.png"
                                 alt="枠のないボーダーレスウィンドウデザイン"
                                 class="w-full h-full object-cover"
                                 loading="lazy"
@@ -532,9 +534,9 @@
                 </div>
 
                 <div class="relative w-full">
-                    <div class="aspect-16/8">
+                    <div class="aspect-[16/8]">
                         <img
-                            src="./images/feature-board.png"
+                            src="/images/feature-board.png"
                             alt="複数の画像を自由に配置できるリファレンスボード"
                             class="w-full h-full object-cover"
                             loading="lazy"
@@ -632,7 +634,7 @@
 
                 <div class="max-w-3xl mx-auto relative z-10">
                     <img
-                        src="./assets/icons/logo.svg"
+                        src="/assets/icons/logo.svg"
                         alt="Swish Gallery アイコン"
                         class="w-16 h-16 mx-auto mb-8 animate-pulse"
                     />
@@ -664,7 +666,7 @@
                         >
                             <span class="flex items-center gap-3">
                                 <img
-                                    src="./assets/icons/microsoft-store.svg"
+                                    src="/assets/icons/microsoft-store.svg"
                                     alt=""
                                     class="w-5 h-5"
                                     aria-hidden="true"
@@ -712,10 +714,9 @@
         </main>
 
         <!-- スクロール検出スクリプト -->
-        <script>
+        <script is:inline>
             // ヘッダーのスクロール時スタイル変更
             const header = document.getElementById("header");
-            let lastScroll = 0;
 
             window.addEventListener(
                 "scroll",
@@ -727,8 +728,6 @@
                     } else {
                         header.classList.remove("header-scrolled");
                     }
-
-                    lastScroll = currentScroll;
                 },
                 { passive: true }
             );
