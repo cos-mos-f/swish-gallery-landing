@@ -4,25 +4,23 @@ const { referenceBoard } = content;
 ---
 
 <section class="section-block py-32 md:py-48 px-6 max-w-7xl mx-auto">
-    <div class="text-center mb-24">
-        <h2
-            class="text-3xl md:text-5xl font-bold tracking-tighter mb-6 leading-tight"
-        >
-            {referenceBoard.heading}
-        </h2>
-        <p class="text-brand-gray font-light">
-            {referenceBoard.subheading}
-        </p>
-    </div>
+  <div class="text-center mb-24">
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tighter mb-6 leading-tight">
+      {referenceBoard.heading}
+    </h2>
+    <p class="text-brand-gray font-light">
+      {referenceBoard.subheading}
+    </p>
+  </div>
 
-    <div class="relative w-full">
-        <div class="aspect-[16/8]">
-            <img
-                src="/images/feature-board.png"
-                alt={referenceBoard.imageAlt}
-                class="w-full h-full object-cover"
-                loading="lazy"
-            />
-        </div>
+  <div class="relative w-full">
+    <div class="aspect-[16/8]">
+      <img
+        src="/images/feature-board.png"
+        alt={referenceBoard.imageAlt}
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
     </div>
+  </div>
 </section>

@@ -1,5 +1,5 @@
 /* Google FontsからNoto Sans JPを読み込み */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap");
 
 @import "tailwindcss";
 
@@ -8,13 +8,14 @@
   --color-brand-cyan: rgb(72 173 255);
   --color-brand-magenta: rgb(237 36 193);
   --color-brand-purple: rgb(178 114 255);
-  --color-brand-black: #0F172A;
-  --color-brand-gray: #64748B;
+  --color-brand-black: #0f172a;
+  --color-brand-gray: #64748b;
 }
 
 /* 基本スタイル */
 body {
-  font-family: "Inter", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family:
+    "Inter", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   background-color: #ffffff;
   color: #1a1a1a;
   -webkit-font-smoothing: antialiased;
@@ -107,7 +108,7 @@ body {
 }
 
 .bg-gradient-dark {
-  background-image: linear-gradient(to bottom, #0F172A, #1E293B);
+  background-image: linear-gradient(to bottom, #0f172a, #1e293b);
 }
 
 @keyframes fadeInUp {

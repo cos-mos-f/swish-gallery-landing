@@ -3,22 +3,17 @@ const { content } = Astro.props;
 const { footer, links } = content;
 ---
 
-<footer
-    class="py-12 px-6 text-center text-xs text-brand-gray font-inter"
-    role="contentinfo"
->
-    <div
-        class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-4"
-    >
-        <a href={links.developerX} class="hover:text-brand-black transition-colors">
-            {footer.developerX}
-        </a>
-        <a href={links.swishNote} class="hover:text-brand-black transition-colors">
-            {footer.swishNote}
-        </a>
-        <a href={links.contact} class="hover:text-brand-black transition-colors">
-            {footer.contact}
-        </a>
-    </div>
-    <p class="font-medium tracking-widest uppercase">{footer.copyright}</p>
+<footer class="py-12 px-6 text-center text-xs text-brand-gray font-inter" role="contentinfo">
+  <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-4">
+    <a href={links.developerX} class="hover:text-brand-black transition-colors">
+      {footer.developerX}
+    </a>
+    <a href={links.swishNote} class="hover:text-brand-black transition-colors">
+      {footer.swishNote}
+    </a>
+    <a href={links.contact} class="hover:text-brand-black transition-colors">
+      {footer.contact}
+    </a>
+  </div>
+  <p class="font-medium tracking-widest uppercase">{footer.copyright}</p>
 </footer>
