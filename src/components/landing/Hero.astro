@@ -2,7 +2,7 @@
 const { content } = Astro.props;
 const { hero, links } = content;
 
-const linesWithBreaks = (lines) =>
+const linesWithBreaks = (lines: string[]) =>
     lines.map((line, index) => ({
         line,
         isLast: index === lines.length - 1,
@@ -29,7 +29,7 @@ const linesWithBreaks = (lines) =>
         <p
             class="hero-lead fade-in-up delay-200 text-lg md:text-xl leading-relaxed mb-10 font-light"
         >
-            {linesWithBreaks(hero.leadLines).map(({ line, isLast }) => (
+            {linesWithBreaks(hero.leadLines).map(({ line, isLast }: { line: string; isLast: boolean }) => (
                 <span>
                     {line}
                     {!isLast && <br />}
