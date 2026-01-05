@@ -1,35 +1,35 @@
 ---
-import '../styles/global.css';
-import { landingCopy } from '../content/landing/en';
-import Header from '../components/landing/Header.astro';
-import Hero from '../components/landing/Hero.astro';
-import ColorValue from '../components/landing/ColorValue.astro';
-import MinimalInterface from '../components/landing/MinimalInterface.astro';
-import ReferenceBoard from '../components/landing/ReferenceBoard.astro';
-import SmartManagement from '../components/landing/SmartManagement.astro';
-import Download from '../components/landing/Download.astro';
-import Footer from '../components/landing/Footer.astro';
+import '../../styles/global.css';
+import { landingCopy } from '../../content/landing/ja';
+import Header from '../../components/landing/Header.astro';
+import Hero from '../../components/landing/Hero.astro';
+import ColorValue from '../../components/landing/ColorValue.astro';
+import MinimalInterface from '../../components/landing/MinimalInterface.astro';
+import ReferenceBoard from '../../components/landing/ReferenceBoard.astro';
+import SmartManagement from '../../components/landing/SmartManagement.astro';
+import Download from '../../components/landing/Download.astro';
+import Footer from '../../components/landing/Footer.astro';
 
 const copy = landingCopy;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="ja" class="scroll-smooth">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!-- Basic title and description -->
+        <!-- 基本のタイトルと説明 -->
         <title>{copy.meta.title}</title>
         <meta name="description" content={copy.meta.description} />
 
-        <!-- Allow indexing -->
+        <!-- インデックス許可 -->
         <meta name="robots" content="index,follow" />
 
-        <!-- Canonical URL -->
+        <!-- 公開 URL -->
         <link rel="canonical" href={copy.meta.canonicalUrl} />
 
-        <!-- Language alternates -->
+        <!-- 言語別の代替 URL -->
         <link
             rel="alternate"
             href="https://gallery-app.swishnote.com/"
@@ -296,7 +296,7 @@ const copy = landingCopy;
         />
         <link rel="manifest" href="/manifest.json" />
 
-        <!-- Fonts -->
+        <!-- フォントなど -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -335,7 +335,7 @@ const copy = landingCopy;
             <Footer content={copy} />
         </main>
 
-        <!-- Scroll detection script -->
+        <!-- スクロール検出スクリプト -->
         <script is:inline>
             const header = document.getElementById("header");
 
