@@ -9,7 +9,7 @@ export const landingCopy = {
     twitterTitle: "SWISH GALLERY | A canvas for creators",
     twitterDescription:
       "A Windows image viewer built for artists. Manage reference images, preserve value with grayscale preview, and build reference boards for digital creators.",
-    canonicalUrl: "https://gallery-app.swishnote.com/",
+    canonicalUrl: "https://gallery-app.swishnote.com/en/",
     ogImage: "https://gallery-app.swishnote.com/images/ogp.png",
     themeColor: "#0F172A",
   },
@@ -32,7 +32,7 @@ export const landingCopy = {
     languageSwitch: {
       current: "English",
       other: "日本語",
-      otherUrl: "https://gallery-app.swishnote.com/ja/",
+      otherUrl: "https://gallery-app.swishnote.com/",
     },
   },
   hero: {

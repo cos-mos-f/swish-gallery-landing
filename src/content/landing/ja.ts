@@ -9,7 +9,7 @@ export const landingCopy = {
     twitterTitle: "SWISH GALLERY | クリエイターのためのキャンバス",
     twitterDescription:
       "絵描きのために作られた Windows 用画像ビューア(フォトアプリケーション)です。資料画像の管理、色価を保ったグレースケールプレビュー、リファレンスボード機能など、デジタルクリエイターの需要に特化したツールです。",
-    canonicalUrl: "https://gallery-app.swishnote.com/ja/",
+    canonicalUrl: "https://gallery-app.swishnote.com/",
     ogImage: "https://gallery-app.swishnote.com/images/ogp.png",
     themeColor: "#0F172A",
   },
@@ -32,7 +32,7 @@ export const landingCopy = {
     languageSwitch: {
       current: "日本語",
       other: "English",
-      otherUrl: "https://gallery-app.swishnote.com/",
+      otherUrl: "https://gallery-app.swishnote.com/en/",
     },
   },
   hero: {
