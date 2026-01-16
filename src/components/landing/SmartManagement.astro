@@ -1,6 +1,18 @@
 ---
+type SmartManagementCard = {
+  number: string;
+  title: string;
+  body: string;
+};
+
 const { content } = Astro.props;
-const { smartManagement } = content;
+const { smartManagement } = content as {
+  smartManagement: {
+    heading: string;
+    subheading: string;
+    cards: SmartManagementCard[];
+  };
+};
 
 const cardShadowClasses = [
   "hover:shadow-blue-500/10",
@@ -21,7 +33,7 @@ const cardShadowClasses = [
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     {
-      smartManagement.cards.map((card, index) => (
+      smartManagement.cards.map((card: SmartManagementCard, index: number) => (
         <div
           class={`feature-card bg-gray-50 p-8 h-64 flex flex-col justify-between transition-all duration-300 cursor-default group hover:bg-white hover:shadow-xl hover:-translate-y-1 ${cardShadowClasses[index]}`}
         >
