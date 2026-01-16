@@ -2,7 +2,7 @@
 const { content } = Astro.props;
 const { colorValue } = content;
 
-const linesWithBreaks = (lines) =>
+const linesWithBreaks = (lines: string[]) =>
   lines.map((line, index) => ({
     line,
     isLast: index === lines.length - 1,

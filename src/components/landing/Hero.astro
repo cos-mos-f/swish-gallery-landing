@@ -13,20 +13,22 @@ const linesWithBreaks = (lines: string[]) =>
   class="hero-section min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 max-w-7xl mx-auto"
   aria-labelledby="hero-heading"
 >
-  <div class="max-w-5xl">
+  <div class="">
     <p
-      class="fade-in-up text-xs font-bold tracking-widest text-brand-gray mb-8 uppercase font-inter"
+      class="fade-in-up text-lg font-bold tracking-widest text-brand-gray mb-8 uppercase font-inter"
     >
       {hero.eyebrow}
     </p>
     <h1
       id="hero-heading"
-      class="hero-title fade-in-up delay-100 text-5xl md:text-8xl font-bold leading-tight tracking-tighter mb-10"
+      class="hero-title fade-in-up delay-100 text-3xl md:text-7xl font-bold leading-tight tracking-tighter mb-10"
     >
       {hero.titleLine1}<br />
       <span class="text-gradient">{hero.titleLine2}</span>
     </h1>
-    <p class="hero-lead fade-in-up delay-200 text-lg md:text-xl leading-relaxed mb-10 font-light">
+    <p
+      class="hero-lead fade-in-up delay-200 text-lg md:text-xl pt-2 leading-relaxed mb-10 font-light"
+    >
       {
         linesWithBreaks(hero.leadLines).map(
           ({ line, isLast }: { line: string; isLast: boolean }) => (

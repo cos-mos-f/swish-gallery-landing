@@ -118,12 +118,12 @@ const htmlLang = lang || "en";
     </script>
   </head>
 
-  <body class="bg-white text-brand-black antialiased">
+  <body class="text-brand-black bg-gray-500">
     <a href="#main-content" class="skip-link">{copy.accessibility.skipLink}</a>
 
     <Header content={copy} />
 
-    <main id="main-content" role="main">
+    <main id="main-content" role="main" class="">
       <Hero content={copy} />
       <ColorValue content={copy} />
       <MinimalInterface content={copy} />
