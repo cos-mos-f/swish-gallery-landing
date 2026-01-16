@@ -2,15 +2,26 @@
   "name": "swish-gallery-landing",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "concurrently -k \"npx @tailwindcss/cli -i ./src/input.css -o ./src/styles.css --watch\" \"live-server src\"",
-    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./src/styles.css --minify",
-    "test:build": "npx @tailwindcss/cli -i ./test_src/input.css -o ./test_src/styles.css --minify"
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.18",
     "concurrently": "^9.2.1",
     "live-server": "^1.2.2",
-    "tailwindcss": "^4.1.18"
+    "prettier": "^3.7.4",
+    "prettier-plugin-astro": "^0.14.1"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   }
 }

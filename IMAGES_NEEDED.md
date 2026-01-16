@@ -7,6 +7,7 @@ Swish Gallery ランディングページで必要な画像ファイルの一覧
 ## 📸 必要な画像ファイル
 
 ### 1. **favicon.ico**
+
 - **配置場所**: `public/favicon.ico`
 - **サイズ**: マルチサイズ（16x16, 32x32, 48x48px）
 - **用途**: ブラウザタブに表示されるアイコン
@@ -14,6 +15,7 @@ Swish Gallery ランディングページで必要な画像ファイルの一覧
 - **背景色**: `#0F172A`（ダークブルー）
 
 ### 2. **apple-touch-icon.png**
+
 - **配置場所**: `public/apple-touch-icon.png`
 - **サイズ**: 180 x 180 px
 - **用途**: iOS でホーム画面に追加した際のアイコン
@@ -22,22 +24,25 @@ Swish Gallery ランディングページで必要な画像ファイルの一覧
 - **注意**: 角丸は不要（iOS が自動で適用）
 
 ### 3. **icon.svg** ✅ 作成済み
+
 - **配置場所**: `public/icon.svg`
 - **サイズ**: ベクター（スケーラブル）
 - **用途**: モダンブラウザ用のファビコン
 - **状態**: ✅ 既に作成済み（背景色付きバージョン）
 
 ### 4. **ogp.png** ⚠️ 最重要
+
 - **配置場所**: `src/images/ogp.png`
 - **サイズ**: 1200 x 630 px（必須）
 - **用途**: Twitter、Facebook などで URL をシェアした時に表示される画像
 - **デザイン仕様**:
+
   ```
   背景:
     - グラデーション（斜め135度）
     - 開始色: #48ADFF (青)
     - 終了色: #ED24C1 (ピンク)
-  
+
   レイアウト:
     - ロゴ: 中央に配置（300x300px程度）
     - メインタイトル: "SWISH GALLERY"
@@ -62,6 +67,7 @@ Swish Gallery ランディングページで必要な画像ファイルの一覧
 ### 最も簡単な方法: オンラインツール（推奨）
 
 #### Favicon & Apple Touch Icon:
+
 1. **[RealFaviconGenerator](https://realfavicongenerator.net/)** にアクセス
 2. `public/icon.svg` をアップロード
 3. 設定で背景色を `#0F172A` に指定
@@ -69,7 +75,9 @@ Swish Gallery ランディングページで必要な画像ファイルの一覧
 5. `favicon.ico` と `apple-touch-icon.png` を `public/` に配置
 
 #### OGP画像:
+
 **[Canva](https://www.canva.com/)** を使用（無料）:
+
 1. カスタムサイズ: 1200 x 630 px で新規作成
 2. 背景にグラデーションを適用（#48ADFF → #ED24C1）
 3. `public/icon.svg` をアップロードして中央に配置
@@ -78,6 +86,7 @@ Swish Gallery ランディングページで必要な画像ファイルの一覧
 6. `src/images/` に保存
 
 ### 代替ツール:
+
 - **Figma**: プロフェッショナルなデザインツール
 - **Photoshop**: Adobe製品をお持ちの場合
 - **OG Image Generator**: https://og-image.vercel.app/
@@ -98,12 +107,12 @@ Swish Gallery ランディングページで必要な画像ファイルの一覧
 
 ## 📐 サイズ早見表
 
-| ファイル | 幅 | 高さ | 形式 |
-|---------|-----|------|------|
-| favicon.ico | 16/32/48 | 16/32/48 | ICO |
-| apple-touch-icon.png | 180 | 180 | PNG |
-| icon.svg | - | - | SVG ✅ |
-| ogp.png | 1200 | 630 | PNG ⚠️ |
+| ファイル             | 幅       | 高さ     | 形式   |
+| -------------------- | -------- | -------- | ------ |
+| favicon.ico          | 16/32/48 | 16/32/48 | ICO    |
+| apple-touch-icon.png | 180      | 180      | PNG    |
+| icon.svg             | -        | -        | SVG ✅ |
+| ogp.png              | 1200     | 630      | PNG ⚠️ |
 
 ---
 

@@ -1,0 +1,90 @@
+---
+const { content } = Astro.props;
+const { hero, links } = content;
+
+const linesWithBreaks = (lines: string[]) =>
+  lines.map((line, index) => ({
+    line,
+    isLast: index === lines.length - 1,
+  }));
+---
+
+<section
+  class="hero-section min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 max-w-7xl mx-auto"
+  aria-labelledby="hero-heading"
+>
+  <div class="">
+    <p
+      class="fade-in-up text-lg font-bold tracking-widest text-brand-gray mb-8 uppercase font-inter"
+    >
+      {hero.eyebrow}
+    </p>
+    <h1
+      id="hero-heading"
+      class="hero-title fade-in-up delay-100 text-3xl md:text-7xl font-bold leading-tight tracking-tighter mb-10"
+    >
+      {hero.titleLine1}<br />
+      <span class="text-gradient">{hero.titleLine2}</span>
+    </h1>
+    <p
+      class="hero-lead fade-in-up delay-200 text-lg md:text-xl pt-2 leading-relaxed mb-10 font-light"
+    >
+      {
+        linesWithBreaks(hero.leadLines).map(
+          ({ line, isLast }: { line: string; isLast: boolean }) => (
+            <span>
+              {line}
+              {!isLast && <br />}
+            </span>
+          )
+        )
+      }
+    </p>
+
+    <div
+      class="fade-in-up delay-200 mb-16 flex flex-col sm:flex-row gap-8 items-start sm:items-center"
+    >
+      <a
+        href={links.store}
+        class="group relative inline-flex items-center justify-center overflow-hidden rounded-full p-0.5 font-bold focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 cta-pulse"
+        aria-label={hero.ctaAriaLabel}
+        onclick="gtag && gtag('event', 'click_download_cta', { event_category: 'engagement', event_label: 'hero_cta' });"
+      >
+        <span class="absolute inset-0 bg-gradient-brand transition-all group-hover:opacity-80"
+        ></span>
+        <span
+          class="relative flex items-center gap-2 bg-white text-brand-black transition-all group-hover:bg-opacity-90 px-8 py-3 rounded-full"
+        >
+          {hero.ctaLabel}
+          <img
+            src="/assets/icons/arrow-right.svg"
+            alt=""
+            class="w-4 h-4 transition-transform group-hover:translate-x-1"
+            aria-hidden="true"
+          />
+        </span>
+      </a>
+      <span class="text-xs text-brand-gray font-light">
+        {hero.trialNote}
+      </span>
+    </div>
+  </div>
+
+  <div class="fade-in-up delay-300 w-full relative group">
+    <div class="img-placeholder">
+      <img
+        src="/images/hero-main.png"
+        alt={hero.imageAlt}
+        class="hidden w-full h-full object-cover"
+        loading="eager"
+        onload="this.classList.remove('hidden'); this.parentElement.classList.remove('img-placeholder')"
+        onerror="this.classList.add('hidden')"
+      />
+    </div>
+    <div
+      class="hero-index absolute -right-4 -bottom-10 md:-right-10 md:-bottom-20 text-[10rem] md:text-[15rem] font-bold text-gray-100 opacity-30 -z-10 select-none pointer-events-none font-inter"
+    >
+      01
+    </div>
+  </div>
+</section>

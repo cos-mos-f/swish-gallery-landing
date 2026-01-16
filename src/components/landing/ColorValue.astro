@@ -1,0 +1,43 @@
+---
+const { content } = Astro.props;
+const { colorValue } = content;
+
+const linesWithBreaks = (lines: string[]) =>
+  lines.map((line, index) => ({
+    line,
+    isLast: index === lines.length - 1,
+  }));
+---
+
+<section class="section-block py-32 md:py-48 px-6 max-w-5xl mx-auto">
+  <div class="grid grid-cols-1 items-start colorvalue-grid">
+    <div class="top-32 colorvalue-text">
+      <h2 class="text-4xl font-bold mb-6 leading-tight">
+        {colorValue.headingLine1}<br />{colorValue.headingLine2}
+      </h2>
+      <p class="text-base font-light leading-relaxed">
+        {
+          linesWithBreaks(colorValue.introLines).map(({ line, isLast }) => (
+            <span>
+              {line}
+              {!isLast && <br />}
+            </span>
+          ))
+        }
+      </p>
+    </div>
+    <div class="colorvalue-media">
+      <div class="aspect-[4/3] mb-8">
+        <img
+          src="/images/feature-grayscale.png"
+          alt={colorValue.imageAlt}
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <p class="text-sm leading-relaxed text-brand-black max-w-prose">
+        {colorValue.body}
+      </p>
+    </div>
+  </div>
+</section>
