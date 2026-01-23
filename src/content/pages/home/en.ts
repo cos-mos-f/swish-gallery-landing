@@ -41,8 +41,8 @@ export const homeCopy = {
     },
   },
   hero: {
-    title: "Stop wasting your second monitor",
-    subtitle: "Reference management app for artists",
+    title: "STOP WASTING YOUR SECOND MONITOR",
+    subtitle: "REFERENCE MANAGEMENT APP FOR ARTISTS",
     ctaLabel: "Try it free",
     ctaUrl: "https://apps.microsoft.com/detail/9N7GJKX6BSZW",
     mediaAlt: "A photo of a working display",

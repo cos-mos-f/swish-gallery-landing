@@ -23,7 +23,10 @@ const { languageSwitch } = header;
           header.navItems.map((item: { href: string; label: string }) => (
             <a
               href={item.href}
-              class="nav-link rounded-full border border-ink-20 px-3 py-1 text-xs uppercase tracking-[0.25em] text-ink-80 transition hover:border-ink-50"
+              class="
+              nav-link rounded-full border border-ink-20 
+              px-3 py-1 text-xs uppercase tracking-[0.25em] font-normal
+              text-ink-80 transition hover:outline-1 hover:font-semibold"
             >
               {item.label}
             </a>
@@ -32,7 +35,7 @@ const { languageSwitch } = header;
       </div>
       <a
         href={languageSwitch.otherUrl}
-        class="text-xs hover:text-ink"
+        class="text-xs hover:text-ink uppercase font-extralight tracking-widest"
         aria-label={`${header.languageLabel}: ${languageSwitch.other}`}
       >
         {languageSwitch.other}
