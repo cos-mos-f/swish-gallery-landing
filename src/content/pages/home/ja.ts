@@ -49,6 +49,7 @@ export const homeCopy = {
     mediaLabel: "作業中のディスプレイの写真",
     platformNote: "for Windows 10/11",
     priceNote: "30 日間 無料 / 以降 ¥480（税込・買い切り）",
+    learnMore: "もっと詳しく",
   },
   snapshot: {
     title: "スナップショット",

@@ -48,8 +48,7 @@ export const homeCopy = {
     mediaAlt: "A photo of a working display",
     mediaLabel: "A photo of a working display",
     platformNote: "for Windows 10/11",
-    priceNote: "30-day free trial / then \u00a5480 (tax included, one-time purchase)",
-  },
+    priceNote: "30-day free trial / then \u00a5480 (tax included, one-time purchase)",    learnMore: "Learn More",  },
   snapshot: {
     title: "Snapshots",
     items: [
