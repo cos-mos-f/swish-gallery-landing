@@ -1,58 +1,38 @@
 ---
 import "../../styles/global.css";
-import Header from "./Header.astro";
-import Hero from "./Hero.astro";
-import ColorValue from "./ColorValue.astro";
-import MinimalInterface from "./MinimalInterface.astro";
-import ReferenceBoard from "./ReferenceBoard.astro";
-import SmartManagement from "./SmartManagement.astro";
-import Download from "./Download.astro";
-import Footer from "./Footer.astro";
+import Header from "../pages/home/sections/header/Header.astro";
+import Footer from "../pages/home/sections/footer/Footer.astro";
 
-const { copy, lang } = Astro.props;
-
+const { content, lang } = Astro.props;
 const htmlLang = lang || "en";
+const { meta, accessibility } = content;
 ---
 
 <!doctype html>
-<html lang={htmlLang} class="scroll-smooth">
+<html lang={htmlLang} class="scroll-smooth min-h-full flex min-w-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Basic title and description -->
-    <title>{copy.meta.title}</title>
-    <meta name="description" content={copy.meta.description} />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
 
-    <!-- Allow indexing -->
     <meta name="robots" content="index,follow" />
+    <link rel="canonical" href={meta.canonicalUrl} />
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href={copy.meta.canonicalUrl} />
-
-    <!-- Language alternates -->
-    <link rel="alternate" href="https://gallery-app.swishnote.com/en/" hreflang="en" />
-    <link rel="alternate" href="https://gallery-app.swishnote.com/" hreflang="ja" />
-    <link rel="alternate" href="https://gallery-app.swishnote.com/" hreflang="x-default" />
-
-    <!-- OGP Meta Tags -->
-    <meta property="og:title" content={copy.meta.ogTitle} />
-    <meta property="og:description" content={copy.meta.ogDescription} />
+    <meta property="og:title" content={meta.ogTitle} />
+    <meta property="og:description" content={meta.ogDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={copy.meta.canonicalUrl} />
+    <meta property="og:url" content={meta.canonicalUrl} />
     <meta property="og:site_name" content="Swish Gallery" />
-    <meta property="og:image" content={copy.meta.ogImage} />
+    <meta property="og:image" content={meta.ogImage} />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={copy.meta.twitterTitle} />
-    <meta name="twitter:description" content={copy.meta.twitterDescription} />
-    <!-- <meta name="twitter:site" content="@your_account" /> -->
+    <meta name="twitter:title" content={meta.twitterTitle} />
+    <meta name="twitter:description" content={meta.twitterDescription} />
 
-    <!-- Theme Color -->
-    <meta name="theme-color" content={copy.meta.themeColor} />
+    <meta name="theme-color" content={meta.themeColor} />
 
-    <!-- Favicon - Google推奨の順序 -->
     <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png" />
@@ -60,7 +40,6 @@ const htmlLang = lang || "en";
     <link rel="shortcut icon" type="image/x-icon" href="/icons/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Apple Touch Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
     <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-touch-icon-144x144.png" />
@@ -71,14 +50,12 @@ const htmlLang = lang || "en";
     <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-touch-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-touch-icon-57x57.png" />
 
-    <!-- Microsoft Tiles -->
-    <meta name="msapplication-TileColor" content="#0F172A" />
+    <meta name="msapplication-TileColor" content="#f5ede3" />
     <meta name="msapplication-square70x70logo" content="/site-tile-70x70.png" />
     <meta name="msapplication-square150x150logo" content="/site-tile-150x150.png" />
     <meta name="msapplication-wide310x150logo" content="/site-tile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/site-tile-310x310.png" />
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -86,7 +63,6 @@ const htmlLang = lang || "en";
       rel="stylesheet"
     />
 
-    <!-- Google Analytics -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-VNC17Y813X"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
@@ -98,22 +74,17 @@ const htmlLang = lang || "en";
     </script>
   </head>
 
-  <body class="text-brand-black bg-gray-500">
-    <a href="#main-content" class="skip-link">{copy.accessibility.skipLink}</a>
+  <body class="min-h-full min-w-full">
+    <a href="#main-content" class="skip-link">{accessibility.skipLink}</a>
 
-    <Header content={copy} />
+    <Header content={content} />
 
-    <main id="main-content" role="main" class="">
-      <Hero content={copy} />
-      <ColorValue content={copy} />
-      <MinimalInterface content={copy} />
-      <ReferenceBoard content={copy} />
-      <SmartManagement content={copy} />
-      <Download content={copy} />
-      <Footer content={copy} />
+    <main id="main-content" role="main" class="flex-1">
+      <slot />
     </main>
 
-    <!-- Scroll detection script -->
+    <Footer content={content} />
+
     <script is:inline>
       const header = document.getElementById("header");
 
@@ -134,7 +105,7 @@ const htmlLang = lang || "en";
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           const targetId = this.getAttribute("href");
-          if (targetId === "#") return;
+          if (!targetId || targetId === "#") return;
 
           const target = document.querySelector(targetId);
           if (target) {

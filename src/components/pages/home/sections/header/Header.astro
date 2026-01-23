@@ -1,0 +1,42 @@
+---
+const { content } = Astro.props;
+const { header } = content;
+const { languageSwitch } = header;
+---
+
+<header
+  id="header"
+  class="site-header fixed top-0 w-full z-50 transition-all duration-300
+  bg-linear-to-b from-black/40 via-black/10 to-transparent text-white h-32"
+  role="banner"
+>
+  <div class="mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
+    <a href={header.homeUrl} class="flex items-center gap-3">
+      <img src="/assets/icons/logo.svg" alt={header.logoAlt} class="h-10 w-10" />
+      <span class="font-display text-xs uppercase tracking-[0.35em] text-ink">
+        {header.brand}
+      </span>
+    </a>
+    <nav aria-label={header.navAriaLabel} class="flex flex-wrap items-center gap-4 text-sm">
+      <div class="flex flex-wrap items-center gap-3">
+        {
+          header.navItems.map((item: { href: string; label: string }) => (
+            <a
+              href={item.href}
+              class="nav-link rounded-full border border-ink-20 px-3 py-1 text-xs uppercase tracking-[0.25em] text-ink-80 transition hover:border-ink-50"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
+      <a
+        href={languageSwitch.otherUrl}
+        class="text-xs hover:text-ink"
+        aria-label={`${header.languageLabel}: ${languageSwitch.other}`}
+      >
+        {languageSwitch.other}
+      </a>
+    </nav>
+  </div>
+</header>
