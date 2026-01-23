@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
+:root{
+  --brand-black: #0f172a;
+  --brand-gray: #4a5464;
+  --app-blue: #48adff;
+  --app-background: #f4f5f7;
+}
 @theme {
-  --color-brand-black: #0f172a;
-  --color-brand-gray: #64748b;
+  --color-brand-black: var(--brand-black);
+  --color-brand-gray: var(--brand-gray);
   --color-blue-400: oklch(70.7% 0.165 254.624);
   --color-blue-500: oklch(62.3% 0.214 259.815);
   --color-purple-500: oklch(62.7% 0.265 303.9);
@@ -10,7 +16,8 @@
   --color-slate-800: oklch(27.9% 0.041 260.031);
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-app-blue: #48adff;
+  --color-app-blue: var(--app-blue);
+  --color-app-background: var(--app-background);
 }
 
 /* Custom Utilities */
@@ -29,7 +36,7 @@
 
 body {
   color: #1a1a1a;
-  background-color: #e0e0e0;
+  background-color: var(--color-app-background);
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 200;
   line-height: 120%;
@@ -42,7 +49,7 @@ body {
 .img-placeholder {
   color: #ffffff;
   text-align: center;
-  background-color: var(--color-app-blue);
+  background-color: var(--color-brand-gray);
   border: 1px solid #e5e5e5;
   display: flex;
   flex-direction: column;

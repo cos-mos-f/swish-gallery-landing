@@ -108,9 +108,9 @@ export const homeCopy = {
   },
   download: {
     title: "ダウンロード",
-    heading: "制作を止めない資料管理を、すぐに。",
-    body: "30 日間無料で試せます。気に入ったら買い切りでずっと使えます。",
-    ctaLabel: "無料で試す",
+    heading: "創作環境をもっと自由に。",
+    body: "まずは 30 日間無料でお試しください。",
+    ctaLabel: "Microsoft Store でダウンロード",
     ctaUrl: "https://apps.microsoft.com/detail/9N7GJKX6BSZW",
     platformNote: "for Windows 10/11",
     priceNote: "30 日間 無料 / 以降 ¥480（税込・買い切り）",
