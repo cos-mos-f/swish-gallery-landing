@@ -60,7 +60,7 @@ export const homeCopy = {
     ],
   },
   features: {
-    title: "機能紹介",
+    title: "機能の紹介",
     items: [
       {
         title: "画面を無駄なく利用",

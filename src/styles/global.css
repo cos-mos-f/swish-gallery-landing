@@ -40,9 +40,9 @@ body {
 }
 
 .img-placeholder {
-  color: #a3a3a3;
+  color: #ffffff;
   text-align: center;
-  background-color: #d0d0d0;
+  background-color: var(--color-app-blue);
   border: 1px solid #e5e5e5;
   display: flex;
   flex-direction: column;
