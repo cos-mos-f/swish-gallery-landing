@@ -78,7 +78,7 @@ export const homeCopy = {
         mediaSrc: "/videos/ボード.mp4",
         bullets: [
           "ドラッグ＆ドロップで自由に配置",
-          "サイン章画像をまとめて比較",
+          "参照画像をまとめて比較",
         ],
       },
       {

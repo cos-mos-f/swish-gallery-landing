@@ -76,7 +76,7 @@ export const homeCopy = {
         mediaSrc: "/videos/ボード.mp4",
         bullets: [
           "Drag and drop to place freely",
-          "Compare line-art images side by side",
+          "Compare reference images side by side",
         ],
       },
       {

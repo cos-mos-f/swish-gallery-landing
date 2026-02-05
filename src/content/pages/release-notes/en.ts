@@ -24,7 +24,15 @@ export const releaseNotesCopy = {
   page: {
     title: "Release Notes",
     lead: "We post the latest updates here.",
-    body: ["Currently in preparation."],
+body: [
+      "2026.02.06 (v0.0.1) - Update",
+      "Added Features:",
+      "・Added a label function.",
+      "・Multiple reference boards can now be created.",
+      "・Bookmarks can now be color-coded and reordered.",
+      "　",
+      "2025.12.22 (v0.0.0) - Initial Release"
+    ],
   },
   footer: getFooter("en"),
 };
