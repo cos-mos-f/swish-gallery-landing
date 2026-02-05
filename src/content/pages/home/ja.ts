@@ -8,7 +8,7 @@ import {
 
 const title = "SWISH GALLERY | 絵描きのための資料管理アプリ";
 const description =
-  "サブモニターを活かす資料管理アプリ。画像整理から比較まで、絵描きの作業を効率化します。";
+  "サブモニターの無駄をなくす、絵描きのための作画資料管理アプリです。";
 
 export const homeCopy = {
   meta: buildMeta({

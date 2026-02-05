@@ -6,11 +6,12 @@ const { page } = content;
 ---
 
 <SiteLayout content={content} lang={lang}>
-  <section class="py-16">
+  <section class="py-16 pt-32">
     <div class="mx-auto max-w-3xl px-4">
       <h1 class="font-display text-3xl text-ink md:text-4xl">
         {page.title}
       </h1>
+      <div class="h-6"></div>
       <p class="mt-4 text-sm text-ink-70">{page.lead}</p>
       <div class="mt-6 space-y-4 text-sm text-ink-70">
         {page.body.map((paragraph: string[]) => <p>{paragraph}</p>)}
@@ -20,7 +21,7 @@ const { page } = content;
           <div class="mt-8">
             <a
               href={page.cta.href}
-              class="inline-flex items-center justify-center rounded-full bg-(--color-accent) px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-white"
+              class="inline-flex items-center justify-center rounded-full bg-(--color-accent)  py-3 text-xs font-semibold uppercase tracking-[0.25em]"
             >
               {page.cta.label}
             </a>
