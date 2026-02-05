@@ -13,7 +13,10 @@ const { features } = content;
     <div class="my-20 space-y-32">
       {
         features.items.map(
-          (item: { mediaLabel: string; title: string; bullets: string[] }, index: number) => (
+          (
+            item: { mediaLabel: string; mediaSrc: string; title: string; bullets: string[] },
+            index: number
+          ) => (
             <div
               class={`
                 feature-row flex flex-col gap-6 md:gap-12
@@ -21,8 +24,18 @@ const { features } = content;
                 `}
             >
               <div class="w-full md:w-1/2">
-                <div class="img-placeholder h-full min-h-70" aria-label={item.mediaLabel}>
-                  <span class="text-xs uppercase tracking-[0.2em]">{item.mediaLabel}</span>
+                <div class="h-full min-h-70 overflow-hidden rounded-lg bg-black/90 shadow-lg shadow-white/10">
+                  <video
+                    class="h-full w-full object-cover"
+                    aria-label={item.mediaLabel}
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                  >
+                    <source src={item.mediaSrc} type="video/mp4" />
+                  </video>
                 </div>
               </div>
               <div class="w-full md:w-1/2 gap-4 flex flex-col">

@@ -52,9 +52,18 @@ export const homeCopy = {
   snapshot: {
     title: "Snapshots",
     items: [
-      "Add a folder and the list appears instantly",
-      "Add images to the board from the list",
-      "Open an image in a separate window",
+      {
+        label: "Add a folder and the list appears instantly",
+        src: "/videos/フォルダ追加.mp4",
+      },
+      {
+        label: "Add images to the board from the list",
+        src: "/videos/一覧からボード.mp4",
+      },
+      {
+        label: "Open an image in a separate window",
+        src: "/videos/別ウィンドウ.mp4",
+      },
     ],
   },
   features: {
@@ -62,7 +71,8 @@ export const homeCopy = {
     items: [
       {
         title: "Use every pixel of your screen",
-        mediaLabel: "GIF of the list view and image window",
+        mediaLabel: "the list view and image window",
+        mediaSrc: "/videos/ギャラリー.mp4",
         bullets: [
           "Browse without waste with river and grid views",
           "Images take up over 90% of the screen",
@@ -70,7 +80,8 @@ export const homeCopy = {
       },
       {
         title: "Add reference folders as-is",
-        mediaLabel: "GIF of adding a folder",
+        mediaLabel: "adding a folder",
+        mediaSrc: "/videos/フォルダ追加.mp4",
         bullets: [
           "Show reference folders in a list as they are",
           "Quick access to the reference board, too",
@@ -78,7 +89,8 @@ export const homeCopy = {
       },
       {
         title: "Place images freely",
-        mediaLabel: "GIF of placing images on the reference board",
+        mediaLabel: "placing images on the reference board",
+        mediaSrc: "/videos/ボード.mp4",
         bullets: [
           "Drag and drop to place freely",
           "Compare line-art images side by side",
@@ -86,7 +98,8 @@ export const homeCopy = {
       },
       {
         title: "Organize references flexibly",
-        mediaLabel: "GIF of bookmarks and labels",
+        mediaLabel: "bookmarks and labels",
+        mediaSrc: "/videos/ブックマークとラベル.mp4",
         bullets: [
           "Flexible organization with two management methods",
           "Save to bookmarks quickly",
@@ -95,7 +108,8 @@ export const homeCopy = {
       },
       {
         title: "Handy image operations",
-        mediaLabel: "GIF of flip and grayscale",
+        mediaLabel: "flip and grayscale",
+        mediaSrc: "/videos/輝度と回転.mp4",
         bullets: [
           "Flip left/right to check for distortion",
           "Use grayscale to confirm values",

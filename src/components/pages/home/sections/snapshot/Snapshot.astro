@@ -11,11 +11,19 @@ const { snapshot } = content;
   </div> -->
   <div class="flex flex-row justify-center items-center gap-8 md:grid-cols-3">
     {
-      snapshot.items.map((item: string) => (
-        <div class="bg-white p-0 shadow-lg shadow-white/10 h-60 w-100">
-          <div class="img-placeholder" aria-label={item}>
-            <span class="text-xs uppercase tracking-[0.2em]">{item}</span>
-          </div>
+      snapshot.items.map((item: { label: string; src: string }) => (
+        <div class="bg-white p-0 shadow-lg shadow-white/10 h-60 w-100 overflow-hidden rounded-lg">
+          <video
+            class="h-full w-full object-cover"
+            aria-label={item.label}
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          >
+            <source src={item.src} type="video/mp4" />
+          </video>
         </div>
       ))
     }

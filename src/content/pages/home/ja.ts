@@ -54,9 +54,18 @@ export const homeCopy = {
   snapshot: {
     title: "スナップショット",
     items: [
-      "フォルダを追加するとすぐ一覧が出る様子",
-      "一覧からボードに画像を追加する様子",
-      "画像を別ウィンドウに開いて表示する様子",
+      {
+        label: "フォルダを追加するとすぐ一覧が出る様子",
+        src: "/videos/フォルダ追加.mp4",
+      },
+      {
+        label: "一覧からボードに画像を追加する様子",
+        src: "/videos/一覧からボード.mp4",
+      },
+      {
+        label: "画像を別ウィンドウに開いて表示する様子",
+        src: "/videos/別ウィンドウ.mp4",
+      },
     ],
   },
   features: {
@@ -64,7 +73,8 @@ export const homeCopy = {
     items: [
       {
         title: "画面を無駄なく利用",
-        mediaLabel: "一覧画面と画像ウィンドウのgif動画",
+        mediaLabel: "一覧画面と画像ウィンドウ",
+        mediaSrc: "/videos/ギャラリー.mp4",
         bullets: [
           "リバー表示とグリッド表示で無駄なく閲覧",
           "画面の90%以上を画像が占有",
@@ -73,6 +83,7 @@ export const homeCopy = {
       {
         title: "資料フォルダをそのまま追加",
         mediaLabel: "フォルダの追加を行うgif動画",
+        mediaSrc: "/videos/フォルダ追加.mp4",
         bullets: [
           "資料のフォルダをそのまま一覧表示",
           "リファレンスボードへも簡単アクセス",
@@ -80,7 +91,8 @@ export const homeCopy = {
       },
       {
         title: "見たい画像を自由に配置",
-        mediaLabel: "リファレンスボードへの画像配置のgif動画",
+        mediaLabel: "リファレンスボードへの画像配置",
+        mediaSrc: "/videos/ボード.mp4",
         bullets: [
           "ドラッグ＆ドロップで自由に配置",
           "サイン章画像をまとめて比較",
@@ -88,7 +100,8 @@ export const homeCopy = {
       },
       {
         title: "資料を柔軟に整理",
-        mediaLabel: "ブックマーク・ラベルのgif動画",
+        mediaLabel: "ブックマーク・ラベル",
+        mediaSrc: "/videos/ブックマークとラベル.mp4",
         bullets: [
           "２種類の管理方法で柔軟に整理",
           "ブックマーク素早く保存",
@@ -97,7 +110,8 @@ export const homeCopy = {
       },
       {
         title: "便利な画像操作機能",
-        mediaLabel: "左右反転とグレースケールのgif動画",
+        mediaLabel: "左右反転とグレースケール",
+        mediaSrc: "/videos/輝度と回転.mp4",
         bullets: [
           "左右反転で崩れをチェック",
           "グレースケールで明暗を確認",
