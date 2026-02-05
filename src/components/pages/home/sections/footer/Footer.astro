@@ -1,0 +1,31 @@
+---
+const { content } = Astro.props;
+const { footer, links } = content;
+---
+
+<footer class="h-70 border-t border-ink-10 bg-white/80" role="contentinfo">
+  <div class="mx-auto max-w-6xl px-4 py-12">
+    <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="text-xs uppercase tracking-[0.35em] text-ink-40">
+          {footer.developerLabel}
+        </p>
+        <a href={links.swishNote} class="mt-2 inline-flex font-display text-lg text-ink">
+          {footer.developerName}
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-4 text-sm text-ink-70">
+        {
+          footer.links.map((item: { href: string; label: string }) => (
+            <a href={item.href} class="hover:text-ink">
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <p class="mt-8 text-xs uppercase tracking-[0.2em] text-ink-40">
+      {footer.copyright}
+    </p>
+  </div>
+</footer>

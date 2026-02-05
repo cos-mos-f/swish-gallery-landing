@@ -1,0 +1,86 @@
+---
+const { content } = Astro.props;
+const { hero } = content;
+---
+
+<section class="relative overflow-hidden h-screen">
+  <img
+    src="/public/images/HERO_IMAGE.png"
+    alt=""
+    class="absolute inset-0 h-full w-full object-cover object-center -z-10 select-none"
+  />
+  <img
+    src="/public/images/HERO_IMAGE.png"
+    alt=""
+    class="absolute inset-0 h-full w-full object-cover object-center -z-10 select-none
+    blur-xs mask-r-from-0"
+  />
+  <div
+    class="static top-0 w-full pb-16 pt-16 h-full bg-linear-to-r from-gray-800/90 via-gray-800/40 to-transparent
+    flex justify-center items-center text-white"
+  >
+    <div
+      class="relative max-w-6xl w-full h-full z-10
+    flex flex-col px-4 py-10
+    items-center md:items-start justify-center md:justify-start"
+    >
+      <div
+        class="flex-col items-center py-10 tracking-widest
+                font-display font-normal text-2xl sm:text-4xl md:text-5xl text-start"
+      >
+        <h1 class="">
+          {hero.title}
+        </h1>
+        <div class="h-4"></div>
+        <h2 class="">
+          {hero.subtitle}
+        </h2>
+      </div>
+      <div class="h-8"></div>
+      <div class="flex flex-col gap-4 items-center justify-center sm:flex-row">
+        <a
+          href={hero.ctaUrl}
+          class="cta-button inline-flex items-center justify-center box-content
+          rounded-full bg-(--color-accent) px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em]
+          border border-white hover:outline-1"
+        >
+          {hero.ctaLabel}
+        </a>
+        <div class="text-xs tracking-[0.2em] text-ink-60 inset-y-0">
+          <div>{hero.platformNote}</div>
+          <div>{hero.priceNote}</div>
+        </div>
+      </div>
+    </div>
+    <div class="relative z-10">
+      <!-- <div
+        class="media-card aspect-4/3 rounded-3xl border border-ink-10 bg-white/70 p-6 shadow-[0_30px_80px_-40px_rgba(20,30,40,0.4)]"
+      >
+        <div class="img-placeholder" aria-label={hero.mediaAlt}>
+          <span class="text-xs uppercase tracking-[0.2em]">{hero.mediaLabel}</span>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <!-- Learn More Button -->
+  <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20">
+    <a
+      href="#snapshots"
+      class="flex flex-col items-center gap-2 text-white hover:opacity-80"
+      aria-label={hero.learnMore}
+    >
+      <span class="text-xs sm:text-md font-light uppercase tracking-[0.2em]">{hero.learnMore}</span>
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7"
+        ></path>
+      </svg>
+    </a>
+  </div>
+</section>

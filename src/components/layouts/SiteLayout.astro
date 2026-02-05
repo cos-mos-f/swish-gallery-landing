@@ -1,0 +1,122 @@
+---
+import "../../styles/global.css";
+import Header from "../pages/home/sections/header/Header.astro";
+import Footer from "../pages/home/sections/footer/Footer.astro";
+
+const { content, lang } = Astro.props;
+const htmlLang = lang || "en";
+const { meta, accessibility } = content;
+---
+
+<!doctype html>
+<html lang={htmlLang} class="scroll-smooth min-h-full flex min-w-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href={meta.canonicalUrl} />
+
+    <meta property="og:title" content={meta.ogTitle} />
+    <meta property="og:description" content={meta.ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={meta.canonicalUrl} />
+    <meta property="og:site_name" content="Swish Gallery" />
+    <meta property="og:image" content={meta.ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={meta.twitterTitle} />
+    <meta name="twitter:description" content={meta.twitterDescription} />
+
+    <meta name="theme-color" content={meta.themeColor} />
+
+    <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/icons/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-touch-icon-57x57.png" />
+
+    <meta name="msapplication-TileColor" content="#f5ede3" />
+    <meta name="msapplication-square70x70logo" content="/site-tile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="/site-tile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="/site-tile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="/site-tile-310x310.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@200;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-VNC17Y813X"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-VNC17Y813X");
+    </script>
+  </head>
+
+  <body class="min-h-full min-w-full">
+    <a href="#main-content" class="skip-link">{accessibility.skipLink}</a>
+
+    <Header content={content} />
+
+    <main id="main-content" role="main" class="flex-1">
+      <slot />
+    </main>
+
+    <Footer content={content} />
+
+    <script is:inline>
+      const header = document.getElementById("header");
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          const currentScroll = window.pageYOffset;
+
+          if (currentScroll > 50) {
+            header.classList.add("header-scrolled");
+          } else {
+            header.classList.remove("header-scrolled");
+          }
+        },
+        { passive: true }
+      );
+
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href");
+          if (!targetId || targetId === "#") return;
+
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

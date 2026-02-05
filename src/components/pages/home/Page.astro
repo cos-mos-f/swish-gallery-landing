@@ -1,0 +1,16 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import Hero from "./sections/hero/Hero.astro";
+import Snapshot from "./sections/snapshot/Snapshot.astro";
+import Features from "./sections/features/Features.astro";
+import Download from "./sections/download/Download.astro";
+
+const { content, lang } = Astro.props;
+---
+
+<SiteLayout content={content} lang={lang}>
+  <Hero content={content} />
+  <Snapshot content={content} />
+  <Features content={content} />
+  <Download content={content} />
+</SiteLayout>

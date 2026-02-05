@@ -1,164 +1,101 @@
-/* Google FontsからNoto Sans JPを読み込み */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@200;300;400;500;700&display=swap");
-
 @import "tailwindcss";
 
-/* カスタムプロパティ */
+:root{
+  --brand-black: #0f172a;
+  --brand-gray: #4a5464;
+  --app-blue: #48adff;
+  --app-background: #f4f5f7;
+}
 @theme {
-  --color-brand-cyan: rgb(72 173 255);
-  --color-brand-magenta: rgb(237 36 193);
-  --color-brand-purple: rgb(178 114 255);
-  --color-brand-black: #0f172a;
-  --color-brand-gray: #64748b;
+  --color-brand-black: var(--brand-black);
+  --color-brand-gray: var(--brand-gray);
+  --color-blue-400: oklch(70.7% 0.165 254.624);
+  --color-blue-500: oklch(62.3% 0.214 259.815);
+  --color-purple-500: oklch(62.7% 0.265 303.9);
+  --color-pink-500: oklch(65.6% 0.241 354.308);
+  --color-slate-800: oklch(27.9% 0.041 260.031);
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-app-blue: var(--app-blue);
+  --color-app-background: var(--app-background);
 }
 
-/* 基本スタイル */
+/* Custom Utilities */
+.text-gradient {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg, #abe3ea, #b272ff 60%, #ff73b3);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.bg-gradient-brand {
+  background-image: linear-gradient(135deg, #abe3ea, #b272ff 60%, #ff73b3);
+}
+.bg-gradient-dark {
+  background-image: linear-gradient(#0f172a, #1e293b);
+}
+
 body {
-  font-family:
-    "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  font-weight: 200;
-  background-color: #ffffff;
   color: #1a1a1a;
-  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-app-background);
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 200;
+  line-height: 120%;
 }
-
-/* カスタム選択色 */
 ::selection {
-  background-color: rgb(72, 173, 255);
-  color: white;
+  color: #fff;
+  background-color: var(--color-app-blue);
 }
 
 .img-placeholder {
-  background-color: #fafafa;
+  color: #ffffff;
+  text-align: center;
+  background-color: var(--color-brand-gray);
   border: 1px solid #e5e5e5;
-  color: #a3a3a3;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 2rem;
+  align-items: center;
   width: 100%;
   height: 100%;
-  min-height: 400px;
+  padding: 2rem;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.img-placeholder:hover {
-  border-color: rgb(72, 173, 255); /* ホバー時にブランドカラー */
-  background-color: #f0f9ff;
-}
 
-/* Animation */
 .fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 0;
+  animation: 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards fadeInUp;
   transform: translateY(20px);
 }
 
-.delay-100 {
-  animation-delay: 0.1s;
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.delay-200 {
-  animation-delay: 0.2s;
-}
-
-.delay-300 {
-  animation-delay: 0.3s;
-}
-
-
-/* スキップリンク（アクセシビリティ） */
 .skip-link {
+  color: #fff;
+  z-index: 100;
+  background: #0f172a;
+  padding: 0.5rem 1rem;
+  transition: top 0.3s;
   position: absolute;
   top: -100%;
   left: 0;
-  background: #0f172a;
-  color: white;
-  padding: 0.5rem 1rem;
-  z-index: 100;
-  transition: top 0.3s;
 }
+.skip-link:focus { top: 0; }
 
-.skip-link:focus {
-  top: 0;
-}
 
-/* ヘッダースクロール時のスタイル */
-.header-scrolled {
-  border-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-/* CTAボタンのパルスアニメーション */
-.cta-pulse:hover {
-  animation: subtle-pulse 2s infinite;
-}
-
-/* グラデーションテキスト用 */
-.text-gradient {
-  background:  linear-gradient(135deg, 
-  rgb(171,227,234) 0%, 
-  rgb(178,114,255) 60%, 
-  rgb(255,115,179) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* グラデーション背景 */
-.bg-gradient-brand {
-  background-image: linear-gradient(135deg, 
-  rgb(171,227,234) 0%, 
-  rgb(178,114,255) 60%, 
-  rgb(255,115,179) 100%);
-}
-
-.bg-gradient-dark {
-  background-image: linear-gradient(to bottom, #0f172a, #1e293b);
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+.cta-pulse:hover { animation: 2s infinite subtle-pulse; }
 @keyframes subtle-pulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(72, 173, 255, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 8px rgba(72, 173, 255, 0);
-  }
+  0%, 100% { box-shadow: 0 0 0 0px rgba(72, 173, 255, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(72, 173, 255, 0); }
 }
 
 @media (max-width: 900px) {
-  .colorvalue-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  .colorvalue-text,
-  .colorvalue-media {
-    grid-column: auto;
-  }
+  .colorvalue-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .colorvalue-text, .colorvalue-media { grid-column: auto; }
 }
-
 @media (min-width: 48rem) {
-  .colorvalue-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-    gap: clamp(2rem, 4vw, 4.5rem);
-  }
+  .colorvalue-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(2rem, 4vw, 4.5rem); }
 }
 
-@media (max-width: 640px) {
-  .site-header-inner {
-    padding-inline: 2rem;
-  }
-  .site-header-link {
-    padding-inline: 0.25rem;
-  }
-}
