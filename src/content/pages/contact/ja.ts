@@ -45,7 +45,7 @@ export const contactCopy = {
     body: ["フォームを開いて詳細を送信してください。"],
     cta: {
       label: "お問い合わせフォームを開く",
-      href: "https://nani.now/ja/contact",
+      href: "https://docs.google.com/forms/d/e/1FAIpQLSfW6YaHjNSy4eKL7cpYdM-Kk2KatAh4oqZCrA9-kh3h4o9HRg/viewform?usp=dialog",
     },
   },
   footer: {
