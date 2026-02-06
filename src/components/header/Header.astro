@@ -23,9 +23,11 @@ const { languageSwitch } = header;
     >
       <div class="flex flex-wrap items-center gap-3">
         {
-          header.navItems.map((item: { href: string; label: string }) => (
+          header.navItems.map((item: { href: string; label: string; id: string }) => (
             <a
               href={item.href}
+              data-ga-event={item.id === "download" ? "download_click" : undefined}
+              data-ga-location={item.id === "download" ? "header" : undefined}
               class="
               nav-link rounded-full border border-ink-20 
               px-3 py-1 text-xs uppercase tracking-[0.25em] font-normal
@@ -58,9 +60,11 @@ const { languageSwitch } = header;
       >
         <div class="flex flex-col gap-2">
           {
-            header.navItems.map((item: { href: string; label: string }) => (
+          header.navItems.map((item: { href: string; label: string; id: string }) => (
               <a
                 href={item.href}
+                data-ga-event={item.id === "download" ? "download_click" : undefined}
+                data-ga-location={item.id === "download" ? "header" : undefined}
                 class="rounded-full border border-ink-20 px-3 py-2 text-[10px] uppercase tracking-[0.25em]
                 text-ink-80 transition hover:outline-1 hover:font-semibold"
               >
