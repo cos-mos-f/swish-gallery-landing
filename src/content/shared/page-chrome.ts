@@ -105,9 +105,9 @@ const buildNavItems = (locale: Locale, isHome: boolean, homeUrl: string) => {
   const downloadHref = isHome ? "#download" : `${homeUrl}#download`;
 
   return [
-    { label: labels.features, href: featuresHref },
-    { label: labels.download, href: downloadHref },
-    { label: labels.releaseNotes, href: `${homeUrl}release-notes/` },
+    { id: "features", label: labels.features, href: featuresHref },
+    { id: "download", label: labels.download, href: downloadHref },
+    { id: "releaseNotes", label: labels.releaseNotes, href: `${homeUrl}release-notes/` },
   ];
 };
 

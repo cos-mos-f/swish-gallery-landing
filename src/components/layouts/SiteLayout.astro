@@ -116,6 +116,28 @@ const { meta, accessibility } = content;
           }
         });
       });
+
+      const sendGaEvent = (eventName, params) => {
+        if (typeof gtag === "function" && eventName) {
+          gtag("event", eventName, params);
+        }
+      };
+
+      document.querySelectorAll("[data-ga-event]").forEach((element) => {
+        element.addEventListener("click", () => {
+          const eventName = element.getAttribute("data-ga-event");
+          const location = element.getAttribute("data-ga-location");
+          const label = element.textContent?.trim() || undefined;
+          const linkUrl = element.getAttribute("href") || undefined;
+
+          sendGaEvent(eventName, {
+            event_category: "engagement",
+            event_label: label,
+            location,
+            link_url: linkUrl,
+          });
+        });
+      });
     </script>
   </body>
 </html>
